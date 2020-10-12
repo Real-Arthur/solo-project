@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
 import mapStoreToProps from '../../redux/mapStoreToProps';
+import {Container, Typography} from '@material-ui/core'
 
 const Nav = (props) => {
   let loginLinkData = {
@@ -17,32 +18,34 @@ const Nav = (props) => {
   }
 
   return (
-    <div className="nav">
+    <Container>
       <Link to="/home">
-        <h2 className="nav-title">Prime Solo Project</h2>
+        <Typography variant="h2" className="nav-title">Cast Watch</Typography>
       </Link>
-      <div className="nav-right">
-        <Link className="nav-link" to={loginLinkData.path}>
+      {/* Always show this link since the home and library pages are not protected */}
+        <Link className="nav-link" to="/">Home</Link>
+        <Link className="nav-link" to="/about">
+          Library
+        </Link>
+      {/* <div className="nav-right">
+        <Link className="nav-link" to={loginLinkData.path}> */}
           {/* Show this link if they are logged in or not,
           but call this link 'Home' if they are logged in,
           and call this link 'Login / Register' if they are not */}
-          {loginLinkData.text}
-        </Link>
+          {/* {loginLinkData.text}
+        </Link> */}
         {/* Show the link to the info page and the logout button if the user is logged in */}
-        {props.store.user.id && (
+        {/* {props.store.user.id && (
           <>
             <Link className="nav-link" to="/info">
               Info Page
             </Link>
             <LogOutButton className="nav-link" />
           </>
-        )}
-        {/* Always show this link since the about page is not protected */}
-        <Link className="nav-link" to="/about">
-          About
-        </Link>
-      </div>
-    </div>
+        )} */}
+        
+      {/* </div> */}
+    </Container>
   );
 };
 

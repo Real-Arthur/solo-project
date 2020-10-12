@@ -69,34 +69,36 @@ class App extends Component {
               // with authRedirect:
               // - if logged in, redirects to "/user"
               // - else shows LoginPage at /login
+              ///// changed to stay on home page
               exact
               path="/login"
               component={LoginPage}
-              authRedirect="/user"
+              authRedirect="/"
             />
             <ProtectedRoute
               // with authRedirect:
               // - if logged in, redirects to "/user"
               // - else shows RegisterPage at "/registration"
+              ///// changed to stay on home page
               exact
               path="/registration"
               component={RegisterPage}
-              authRedirect="/user"
+              authRedirect="/"
             />
-            <ProtectedRoute
+            <Route
               // with authRedirect:
               // - if logged in, redirects to "/user"
               // - else shows LandingPage at "/home"
               exact
               path="/home"
               component={LandingPage}
-              authRedirect="/user"
+              authRedirect="/home"
             />
 
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
           </Switch>
-          <Footer />
+          {/* <Footer /> */}
         </div>
       </Router>
     );
