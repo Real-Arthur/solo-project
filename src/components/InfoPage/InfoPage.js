@@ -1,3 +1,4 @@
+import { Container } from '@material-ui/core';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
@@ -7,34 +8,31 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 // It doesn't dispatch any redux actions or display any part of redux state
 // or even care what the redux state is, so it doesn't need 'connect()'
 
-/*
-const InfoPage = () => (
-  <div>
-    <p>Info Page</p>
-  </div>
-);
-*/
+
+// const InfoPage = () => (
+//   <div>
+//     {JSON.stringify(movies)}
+//   </div>
+// );
+
 // If you needed to add local state or other things,
 // you can make it a class component like:
 
 
 class InfoPage extends React.Component {
-  componentDidMount() {
-    this.getLibrary()
-  }
 
-  getLibrary = () => {
-    console.log('getLibrary');
-    
-  }
 
   render() {
+    console.log('props', this.props.movies);
+    
     return (
-      <div>
-        <p>Info Page</p>
-      </div>
+      <ul>
+        {this.props.movies.map(movie => 
+          <li>{movie.title} {movie.overview}</li>
+          )}
+      </ul>
     )
   }
 }
 
-export default connect()(InfoPage);
+export default connect(mapStoreToProps)(InfoPage);
