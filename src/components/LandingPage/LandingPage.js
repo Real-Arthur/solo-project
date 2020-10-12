@@ -2,10 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
+import { Box, Container, Card, Typography } from '@material-ui/core'
+
 import './LandingPage.css';
 
 // CUSTOM COMPONENTS
 import RegisterForm from '../RegisterForm/RegisterForm';
+import LoginPage from '../LoginPage/LoginPage';
+import InfoPage from '../InfoPage/InfoPage';
+import SearchPage from '../SearchPage/SearchPage';
+import UserPage from '../UserPage/UserPage';
 
 class LandingPage extends Component {
   state = {
@@ -13,16 +19,21 @@ class LandingPage extends Component {
   };
 
   onLogin = (event) => {
-    this.props.history.push('/login');
+    // this.props.history.push('/home');
   };
 
   render() {
     return (
-      <div className="container">
-        <h2>{this.state.heading}</h2>
+      <Container>
+        <Box>
+          <UserPage />
+        </Box>
+        <Typography variant="h1">{this.state.heading}</Typography>
+        
 
-        <div className="grid">
-          <div className="grid-col grid-col_8">
+        <Box display="flex" flexDirection="row" flexWrap="nowrap">
+          <Box order={2}>
+            <SearchPage />
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
               id felis metus. Vestibulum et pulvinar tortor. Morbi pharetra
@@ -54,19 +65,20 @@ class LandingPage extends Component {
               Nullam non fermentum mauris. Sed in enim ac turpis faucibus
               pretium in sit amet nisi.
             </p>
-          </div>
-          <div className="grid-col grid-col_4">
-            <RegisterForm />
-
-            <center>
-              <h4>Already a Member?</h4>
-              <button className="btn btn_sizeSm" onClick={this.onLogin}>
-                Login
-              </button>
-            </center>
-          </div>
-        </div>
-      </div>
+          </Box>
+          {/* All login/register materials */}
+          <Box order={1} width="20%">
+              <LoginPage />
+              <RegisterForm />
+          </Box>
+          <Box order={3}width="20%">
+            <Typography>
+              <InfoPage />
+            </Typography>
+        </Box>
+        </Box>
+        
+      </Container>
     );
   }
 }
