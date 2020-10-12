@@ -72,6 +72,7 @@ class LandingPage extends Component {
               <RegisterForm />
           </Box>
           <Box order={3}width="20%">
+            <Typography>Library</Typography>
             <Typography>
               <InfoPage />
             </Typography>
