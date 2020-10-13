@@ -1,6 +1,6 @@
-const searchReducer = (state = [], action) => {
+const titleReducer = (state = [], action) => {
     switch (action.type) {
-      case 'SET_SEARCH_TITLE':
+      case 'SET_SEARCHED_TITLE':
         return action.payload;
       default:
         return state;
@@ -9,4 +9,4 @@ const searchReducer = (state = [], action) => {
   
   // user will be on the redux state at:
   // state.user
-  export default searchReducer;
+  export default titleReducer;

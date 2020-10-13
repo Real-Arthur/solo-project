@@ -7,9 +7,9 @@ require('dotenv').config();
 /**
  * GET route template
  */
-router.get('/title', (req, res) => {
+router.get('/', (req, res) => {
   // GET route code here
-    console.log('req query', req.query.title);
+    console.log('req query title get', req.query.title);
     let movieTitle = req.query.title;
     axios({
         method: 'GET',
@@ -31,10 +31,7 @@ router.get('/title', (req, res) => {
     
 });
 
-router.get('/name', (req, res) => {
-console.log('req query', req.query);
 
-});
 
 /**
  * POST route template

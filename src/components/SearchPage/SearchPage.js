@@ -8,40 +8,65 @@ import WcIcon from '@material-ui/icons/Wc';
 import SearchIcon from '@material-ui/icons/Search';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import TheatersIcon from '@material-ui/icons/Theaters';
-import SearchResults from '../SearchResults/SearchResults';
+import TitleResults from '../SearchResults/TitleResults';
+import PersonResults from '../SearchResults/PersonResults';
 
-
+const initialState = {
+  movieTitle: '',
+  personName: ''
+}
 
 class SearchPage extends Component {
   state = {
     isMovie: true,
+    search: {
+    movieTitle: '',
+    personName: ''
+    }
   };
 
-  toggleSearch = () => {
+  toggleSearch = (event) => {
     this.setState({
-      isMovie: !this.state.isMovie
+      isMovie: !this.state.isMovie,
+      search: {
+        movieTitle: '',
+        personName: ''
+      }
     })
   }
 
   searchTitle = (event) => {
     console.log('event value and property name', event.target.value);
+    this.setState({
+      search: {
+        ...this.state.personName,
+        movieTitle: event.target.value,
+      }
+    })
       this.props.dispatch({
         type: 'SEARCH_BY_TITLE',
         payload: event.target.value
       })
   }
 
-  searchName = (event) => {
+  searchPerson = (event) => {
     console.log('event value and property name', event.target.value);
+    this.setState({
+      search: {
+        ...this.state.movieTitle,
+        personName: event.target.value,
+      }
+    })
       this.props.dispatch({
-        type: 'SEARCH_BY_NAME',
+        type: 'SEARCH_BY_PERSON',
         payload: event.target.value
       })
   }
 
 
   render() {
-
+    console.log('state', this.state);
+    
     if(this.state.isMovie){
     return (
       <Card>
@@ -49,6 +74,7 @@ class SearchPage extends Component {
         fullWidth 
         variant="outlined"
         label="Search Movies"
+        value={this.state.search.movieTitle}
         InputProps={{
           startAdornment: (
           <InputAdornment position="start">
@@ -65,7 +91,7 @@ class SearchPage extends Component {
         }}
         onChange={(event) => this.searchTitle(event)}
         />
-        <SearchResults />
+        <TitleResults />
       </Card>
     );
       } else {
@@ -75,6 +101,7 @@ class SearchPage extends Component {
         fullWidth 
         variant="outlined"
         label="Search People"
+        value={this.state.search.personName}
         InputProps={{
           startAdornment: (
           <InputAdornment position="start">
@@ -89,11 +116,9 @@ class SearchPage extends Component {
             </InputAdornment>
           )
         }}
-        onChange={(event) => this.searchName(event)}
+        onChange={(event) => this.searchPerson(event)}
         />
-        <Card>
-          
-        </Card>
+        <PersonResults />
       </Card>
         )
       }

@@ -3,17 +3,17 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import './SearchResults.css';
 
-class SearchResults extends Component {
+class TitleResults extends Component {
   state = {
     heading: 'Class Component',
   };
 
   render() {
-    console.log('movies list', this.props.store.searchReducer);
+    console.log('movies list', this.props.store.titleReducer);
     
     return (
       <ul>
-        {this.props.store.searchReducer.map(movie =>
+        {this.props.store.titleReducer.map(movie =>
         <div key={movie.id}>
           <li >{movie.title}</li>
           <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
@@ -24,4 +24,4 @@ class SearchResults extends Component {
   }
 }
 
-export default connect(mapStoreToProps)(SearchResults);
+export default connect(mapStoreToProps)(TitleResults);
