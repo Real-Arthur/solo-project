@@ -21,7 +21,8 @@ router.get('/title', (req, res) => {
         }
     })
     .then(response => {
-        console.log('res data', response.data);
+        console.log('res data data', response.data.results);
+        res.send(response.data.results)
     })
     .catch(error => {
         console.log('error', error);

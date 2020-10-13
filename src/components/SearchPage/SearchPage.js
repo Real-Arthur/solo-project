@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
+
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { TextField, Card, Button } from '@material-ui/core';
 import WcIcon from '@material-ui/icons/Wc';
 import SearchIcon from '@material-ui/icons/Search';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import TheatersIcon from '@material-ui/icons/Theaters';
+import SearchResults from '../SearchResults/SearchResults';
+
 
 
 class SearchPage extends Component {
@@ -61,7 +65,7 @@ class SearchPage extends Component {
         }}
         onChange={(event) => this.searchTitle(event)}
         />
-        
+        <SearchResults />
       </Card>
     );
       } else {
@@ -87,7 +91,9 @@ class SearchPage extends Component {
         }}
         onChange={(event) => this.searchName(event)}
         />
-        
+        <Card>
+          
+        </Card>
       </Card>
         )
       }

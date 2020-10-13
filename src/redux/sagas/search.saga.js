@@ -4,14 +4,18 @@ import axios from 'axios';
 function* searchByTitle(action) {
     console.log('SEARCH_BY SAGA', action.type);
     console.log('SEARCH BY SAGA', action.payload);
-    yield axios({
+    let response = yield axios({
         method: 'GET',
         url: '/api/search/title',
         params: {
             title: action.payload
         }
     })
-    // console.log('response data', response.data);
+    console.log('response data', response.data);
+    yield put({
+        type: 'SET_SEARCH_TITLE',
+        payload: response.data
+    })
     
 }
 
