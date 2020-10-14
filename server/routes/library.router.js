@@ -4,7 +4,7 @@ const router = express.Router();
 
 /**
  * GET route template
- */
+ 
 router.get('/:id', (req, res) => {
   console.log('LIBRARY ROUTER GET', req.params.id);
   let userId = parseInt(req.params.id);
@@ -21,11 +21,12 @@ router.get('/:id', (req, res) => {
     // GETTING AN ERROR FROM res.sendStatus(200)
     // res.sendStatus(200);
   })
-  .catch((error) => {
+  .catch(error => {
     console.log('library GET: ', error);
-  res.sendStatus(500);
+    res.send(error);
   })
 });
+*/
 
 /**
  * POST route template
@@ -36,10 +37,11 @@ router.post('/add', (req, res) => {
   let queryString = `INSERT INTO "movie" ("id", "title", "overview", "release_date", "poster_path")
   VALUES ($1, $2, $3, $4, $5);`;
   pool.query(queryString, [req.body.id, req.body.title, req.body.overview, req.body.release_date, req.body.poster_path])
-  .then((response) => {
+  .then(response => {
     console.log('Added to library', response);
+    res.sendStatus(200)
   })
-  .then((error) => {
+  .catch(error => {
     console.log('Error Library Post', error);
     res.sendStatus(500)
   })

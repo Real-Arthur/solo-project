@@ -1,22 +1,7 @@
 import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
-function* fetchLibrary(action) {
-    console.log('FETCH_LIBRARY SAGA', action);
-    let userId = action.payload.id;
-    let response = yield axios({
-        method: 'GET',
-        url: `/api/library/${userId}`,
-        params: {
-            id: userId
-        }
-    })
-    console.log('response', response.data);
-    yield put({
-        type: 'CREATE_LIBRARY',
-        payload: response.data
-    })
-}
+
 
 function* addToLibrary(action) {
     console.log('ADD TO LIBRARY SAGA', action.payload);
@@ -31,12 +16,20 @@ function* addToLibrary(action) {
             poster_path: action.payload.poster_path
         }
     })
+    // console.log('user id', action.payload.user_id);
+    // console.log('movie id', action.payload.id);
+    // yield put({
+    //     type: 'ADD_TO_COLLECTION',
+    //     payload: {
+    //         user_id: action.payload.user_id,
+    //         movie_id: action.payload.id
+    //     }
+    // })
 }
 
 
 
 function* librarySaga() {
-    yield takeLatest('FETCH_LIBRARY', fetchLibrary);
     yield takeLatest('ADD_TO_LIBRARY', addToLibrary);
   }
 

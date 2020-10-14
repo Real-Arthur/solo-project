@@ -14,13 +14,13 @@ class PersonResults extends Component {
 
   findFilmography = (personId, personName) => {
     console.log('Person id', personId, personName);
-    this.props.dispatch({
-      type: 'FETCH_FILMOGRAPHY',
-      payload: {
-        id: personId,
-        name: personName
-      }
-    })
+    // this.props.dispatch({
+    //   type: 'FETCH_FILMOGRAPHY',
+    //   payload: {
+    //     id: personId,
+    //     name: personName
+    //   }
+    // })
   }
 
   render() {

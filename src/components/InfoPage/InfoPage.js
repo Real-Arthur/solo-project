@@ -20,15 +20,17 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 
 
 class InfoPage extends React.Component {
-
+ state= {
+   userData: 0
+ }
 
   render() {
-    console.log('props', this.props.movies);
+    console.log('info props', this.props.store);
     
     return (
       <ul>
         {this.props.movies.map(movie => 
-          <li>{movie.title} {movie.overview}</li>
+          <li>{movie.title}</li>
           )}
       </ul>
     )
