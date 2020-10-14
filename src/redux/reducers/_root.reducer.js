@@ -16,7 +16,7 @@ const rootReducer = combineReducers({
   user, // will have an id and username if someone is logged in
   libraryReducer, // will capture movie library of user
   titleReducer, // will capture title search results
-  personReducer
+  personReducer,
 });
 
 export default rootReducer;

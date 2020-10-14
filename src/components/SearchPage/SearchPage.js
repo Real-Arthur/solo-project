@@ -11,10 +11,7 @@ import TheatersIcon from '@material-ui/icons/Theaters';
 import TitleResults from '../SearchResults/TitleResults';
 import PersonResults from '../SearchResults/PersonResults';
 
-const initialState = {
-  movieTitle: '',
-  personName: ''
-}
+
 
 class SearchPage extends Component {
   state = {
@@ -35,18 +32,23 @@ class SearchPage extends Component {
     })
   }
 
+
+
   searchTitle = (event) => {
-    console.log('event value and property name', event.target.value);
+    console.log('event value and property name', event.target.value.length);
+    
     this.setState({
       search: {
         ...this.state.personName,
         movieTitle: event.target.value,
       }
     })
+    if(event.target.value.length > 1) {
       this.props.dispatch({
         type: 'SEARCH_BY_TITLE',
         payload: event.target.value
       })
+      }
   }
 
   searchPerson = (event) => {
@@ -57,10 +59,12 @@ class SearchPage extends Component {
         personName: event.target.value,
       }
     })
+    if(event.target.value.length > 1) {
       this.props.dispatch({
         type: 'SEARCH_BY_PERSON',
         payload: event.target.value
       })
+    }
   }
 
 

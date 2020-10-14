@@ -9,8 +9,7 @@ class PersonResults extends Component {
   };
 
   render() {
-    console.log('people list', this.props.store.personReducer);
-    
+    console.log('people list', );
     return (
       <ul>
         {this.props.store.personReducer.map(person =>
