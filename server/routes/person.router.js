@@ -29,6 +29,24 @@ router.get('/', (req, res) => {
     })
   });
 
+  router.get('/filmography', (req, res) => {
+    console.log('Filmography get route', req.query);
+    let filmographyToGet = parseInt(req.query.id);
+    console.log('person Id', typeof(filmographyToGet));
+    
+    axios({
+      method: 'GET',
+      url: `https://api.themoviedb.org/3/person/${filmographyToGet}/movie_credits?`,
+      params: {
+        api_key:process.env.API_KEY
+      }
+    })
+    .then(response => {
+      console.log('filmography res', response.data.cast);
+      res.send(response.data.cast)
+    })
+  })
+
 /**
  * POST route template
  */
