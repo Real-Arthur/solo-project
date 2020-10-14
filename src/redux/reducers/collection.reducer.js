@@ -1,9 +1,9 @@
-const libraryReducer = (state = [], action) => {
+const collectionReducer = (state = [], action) => {
     console.log('action payload', action.payload);
     console.log('action type', action.type);
     
     switch (action.type) {
-      case 'CREATE_LIBRARY':
+      case 'CREATE_COLLECTION':
         return action.payload;
       default:
         return state;
@@ -12,5 +12,5 @@ const libraryReducer = (state = [], action) => {
   
   // user will be on the redux state at:
   // state.user
-  export default libraryReducer;
+  export default collectionReducer;
   

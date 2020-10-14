@@ -15,18 +15,26 @@ import UserPage from '../UserPage/UserPage';
 
 class LandingPage extends Component {
   state = {
-    heading: 'Class Component',
+    
   };
+
+  loadCollection = (value) => {
+    console.log('value', value);
+    
+  }
+  
  
   render() {
-    console.log('this props', this.props);
+    console.log('this props', this.props.store);
+    console.log('this.s----', this.state);
+    
     
     return (
       <Container>
         <Box>
           <UserPage />
         </Box>
-        <Typography variant="h1">{this.state.heading}</Typography>
+        <Typography variant="h1"></Typography>
         
 
         <Box display="flex" flexDirection="row" flexWrap="nowrap">
@@ -40,8 +48,8 @@ class LandingPage extends Component {
           </Box>
           <Box order={3}width="20%">
             <Typography>Library</Typography> 
-              <InfoPage 
-              movies={this.props.store.libraryReducer}
+              <InfoPage
+              movies={this.props.store.collectionReducer}
               />     
         </Box>
         </Box>
