@@ -67,9 +67,19 @@ class SearchPage extends Component {
     }
   }
 
+  findCast = (movie) => {
+    console.log('Find cast of ', movie.id);
+    console.log('Find cast of ', movie.title);
+    this.props.dispatch({
+      type: 'FETCH_CAST',
+      payload: movie.id
+    })
+  }
+
 
   render() {
     console.log('state', this.state);
+    console.log('state', this.props);
     
     if(this.state.isMovie){
     return (
@@ -95,7 +105,7 @@ class SearchPage extends Component {
         }}
         onChange={(event) => this.searchTitle(event)}
         />
-        <TitleResults />
+        <TitleResults findCast={this.findCast}/>
       </Card>
     );
       } else {

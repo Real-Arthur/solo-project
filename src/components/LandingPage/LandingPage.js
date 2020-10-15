@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
+import {
+  HashRouter as Router,
+  Route,
+  Redirect,
+  Switch,
+} from 'react-router-dom';
+
 import { Box, Container, Card, Typography } from '@material-ui/core'
 
 import './LandingPage.css';
@@ -30,6 +37,7 @@ class LandingPage extends Component {
     
     
     return (
+      <Router>
       <Container>
         <Box>
           <UserPage />
@@ -48,13 +56,19 @@ class LandingPage extends Component {
           </Box>
           <Box order={3}width="20%">
             <Typography>Library</Typography> 
-              <InfoPage
-              movies={this.props.store.collectionReducer}
-              />     
+              {this.props.store.collectionReducer.map((movie, i) =>
+                <InfoPage
+                  id={i}
+                  movieId={movie.id}
+                  title={movie.title}
+                />
+              )}
+                   
         </Box>
         </Box>
         
       </Container>
+      </Router>
     );
   }
 }

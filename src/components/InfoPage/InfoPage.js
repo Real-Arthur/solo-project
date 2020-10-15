@@ -1,7 +1,8 @@
-import { Container } from '@material-ui/core';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
+import { Grid, Button, Container, Typography, Box } from '@material-ui/core';
+import InfoIcon from '@material-ui/icons/Info';
 
 // This is one of our simplest components
 // It doesn't have local state, so it can be a function component.
@@ -9,32 +10,13 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 // or even care what the redux state is, so it doesn't need 'connect()'
 
 
-// const InfoPage = () => (
-//   <div>
-//     {JSON.stringify(movies)}
-//   </div>
-// );
+  const InfoPage = (props) => (
+     <Grid container direction="column" spacing={0}>
+      <Button key={props.id}>
+      <Grid item xs={12}>
+      <Typography>{props.title}</Typography>
+    </Grid></Button>
+</Grid>
+ );
 
-// If you needed to add local state or other things,
-// you can make it a class component like:
-
-
-class InfoPage extends React.Component {
- state= {
-   userData: 0
- }
-
-  render() {
-    console.log('info props', this.props.store);
-    
-    return (
-      <ul>
-        {this.props.movies.map(movie => 
-          <li>{movie.title}</li>
-          )}
-      </ul>
-    )
-  }
-}
-
-export default connect(mapStoreToProps)(InfoPage);
+export default InfoPage;
