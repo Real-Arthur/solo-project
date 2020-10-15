@@ -7,9 +7,6 @@ import InfoIcon from '@material-ui/icons/Info';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 
 class TitleResults extends Component {
-  state = {
-    heading: 'Class Component',
-  };
 
   addToLibraryAndCollection = (movie, idNumber) => {
     this.addToLibrary(movie);
@@ -43,6 +40,8 @@ class TitleResults extends Component {
     })
   }
 
+
+
   render() {
     console.log('movies list', this.props.store.titleReducer);
     console.log('movies list', this.props.store.user.id);
@@ -60,7 +59,9 @@ class TitleResults extends Component {
             )}
         </Grid>
       );
-    } else {
+    } 
+    else {
+
       return (
         <Grid container direction="column" spacing={0}>
           {this.props.store.titleReducer.map(movie =>
@@ -69,7 +70,7 @@ class TitleResults extends Component {
             <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} />
             <Typography>{movie.title}</Typography>
             <Box>
-            <Button onClick={() => this.findCast(movie)}><InfoIcon /></Button>
+            <Button onClick={() => this.props.findCast(movie)}><InfoIcon /></Button>
             <Button onClick={() => this.addToLibraryAndCollection(movie, this.props.store.user)}><AddCircleIcon/></Button>
             </Box>
             </Grid>
