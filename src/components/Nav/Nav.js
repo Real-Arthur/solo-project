@@ -23,8 +23,8 @@ const Nav = (props) => {
         <Typography variant="h2" className="nav-title">Cast Watch</Typography>
       </Link>
       {/* Always show this link since the home and library pages are not protected */}
-        <Link className="nav-link" to="/">Home</Link>
-        <Link className="nav-link" to="/about">
+        <Link className="nav-link" to="/home">Home</Link>
+        <Link className="nav-link" to="/library">
           Library
         </Link>
       {/* <div className="nav-right">

@@ -4,6 +4,8 @@ import user from './user.reducer';
 import collectionReducer from './collection.reducer';
 import titleReducer from './title.reducer';
 import personReducer from './person.reducer';
+import castReducer from './cast.reducer';
+import currentReducer from './current.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -17,6 +19,8 @@ const rootReducer = combineReducers({
   collectionReducer, // will capture movie library of user
   titleReducer, // will capture title search results
   personReducer,
+  castReducer,
+  currentReducer
 });
 
 export default rootReducer;

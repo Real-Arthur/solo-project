@@ -1,6 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import mapStoreToProps from '../../redux/mapStoreToProps';
+import { Container, Box, Typography, Card } from '@material-ui/core';
+import UserPage from '../UserPage/UserPage';
+import InfoPage from '../InfoPage/InfoPage';
+import LoginPage from '../LoginPage/LoginPage';
+import RegisterPage from '../RegisterPage/RegisterPage';
+import SearchPage from '../SearchPage/SearchPage';
+import AdditionalUserInfo from '../AdditionalUserInfo/AdditionalUserInfo';
+import CastListResults from './CastListResults';
+import Nav from '../Nav/Nav';
 
 // Basic class component structure for React with default state
 // value setup. When making a new component be sure to replace
@@ -8,16 +18,77 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 // component.
 class FullCast extends Component {
   state = {
-    heading: 'Class Component',
+    currentMovie: ""
   };
 
-  render() {
-    return (
-      <div>
-        <h2>{this.state.heading}</h2>
-      </div>
-    );
+  findFilms = (value) => {
+    console.log(`find this person's films`, value);
+    
   }
+
+  render() {
+    console.log('Looking up cast of', this.props.store.castReducer);
+    
+    if(Object.entries(this.props.store.user).length === 0) {
+      return (
+      <Container>
+        <Box><Nav /></Box>
+        <Box><UserPage /></Box>
+        <Box display="flex" flexDirection="row" flexWrap="nowrap">       
+        <Box order={1} width="15%">           
+          <LoginPage/>
+          <RegisterPage />
+        </Box>         
+          <Box order={2} width="80%">
+            <CastListResults 
+            castList={this.props.store.castReducer}
+            title={this.props.store.currentReducer}
+            findFilms={this.findFilms()}
+            />
+          </Box>          
+          <Box order={3} width="10%">
+          <Typography>Library</Typography>
+          {this.props.store.collectionReducer.map((movie, i) =>
+              <InfoPage
+                id={i}
+                movieId={movie.id}
+                title={movie.title}
+              />
+            )} 
+          </Box>
+          </Box>
+      </Container>
+  );}
+  else {
+      return (
+          <Container>
+              <Box><Nav /></Box>
+              <Box><UserPage /></Box>
+              <Box display="flex" flexDirection="row" flexWrap="nowrap">       
+              <Box order={1} width="15%">           
+              <AdditionalUserInfo />
+              </Box>         
+              <Box order={2} width="80%">
+                  <CastListResults 
+                  castList={this.props.store.castReducer}
+                  title={this.props.store.currentReducer}
+                  />
+              </Box>          
+              <Box order={3} width="10%">
+              <Typography>Library</Typography>
+              {this.props.store.collectionReducer.map((movie, i) =>
+                  <InfoPage
+                      id={i}
+                      movieId={movie.id}
+                      title={movie.title}
+                  />
+                  )} 
+              </Box>
+              </Box>
+          </Container>
+              );
+          }
+}
 }
 
-export default connect(mapStoreToProps)(FullCast);
+export default connect(mapStoreToProps)(withRouter((FullCast)));

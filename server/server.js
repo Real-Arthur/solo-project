@@ -14,6 +14,7 @@ const libraryRouter = require('./routes/library.router');
 const titleRouter = require('./routes/title.router');
 const personRouter = require('./routes/person.router');
 const collectionRouter = require('./routes/collection.router');
+const castRouter = require('./routes/cast.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -32,6 +33,7 @@ app.use('/api/library', libraryRouter);
 app.use('/api/title', titleRouter);
 app.use('/api/person', personRouter);
 app.use('/api/collection', collectionRouter);
+app.use('/api/cast', castRouter);
 
 // Serve static files
 app.use(express.static('build'));
