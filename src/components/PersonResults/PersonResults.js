@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { Grid, Button, Container, Typography } from '@material-ui/core';
 import InfoIcon from '@material-ui/icons/Info';
+import { withRouter } from 'react-router-dom';
 
 
 class PersonResults extends Component {
@@ -17,6 +18,7 @@ class PersonResults extends Component {
         name: personName
       }
     })
+    this.props.history.push('/films')
   }
 
   render() {
@@ -37,4 +39,4 @@ class PersonResults extends Component {
   }
 }
 
-export default connect(mapStoreToProps)(PersonResults);
+export default connect(mapStoreToProps)(withRouter((PersonResults)));
