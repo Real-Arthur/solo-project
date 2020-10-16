@@ -5,12 +5,13 @@ import { withRouter } from 'react-router-dom';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import InfoIcon from '@material-ui/icons/Info';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
+import ResultsVsLibrary from '../ResultsVsLibrary/ResultsVsLibrary';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
 // component name TemplateFunction with the name for the new component.
 function FilmsList(props) {
-    const [currentSearch, setCurrent] = useState(props.store.currentSearch);
+    const [isEqual, equalScanner] = useState(props.store.currentSearch);
   
     if(props.loggedIn){
   return (
@@ -25,7 +26,11 @@ function FilmsList(props) {
             <Typography>{film.original_title}</Typography>
             <Box>
             <Button onClick={() => props.findCast(film)}><InfoIcon /></Button>
-            <Button onClick={() => props.addToLibraryAndCollection(film, props.store.user.id)}><AddCircleIcon/></Button>
+            
+            <ResultsVsLibrary 
+            filmId={film.id}
+            />
+            
             </Box>
             </Grid>
             </Grid>

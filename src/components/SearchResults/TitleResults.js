@@ -4,6 +4,7 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 import { Grid, Button, Container, Typography, Box } from '@material-ui/core';
 import InfoIcon from '@material-ui/icons/Info';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
+import ResultsVsLibrary from '../ResultsVsLibrary/ResultsVsLibrary';
 
 class TitleResults extends Component {
 
@@ -70,7 +71,9 @@ class TitleResults extends Component {
             <Typography>{movie.title}</Typography>
             <Box>
             <Button onClick={() => this.props.findCast(movie)}><InfoIcon /></Button>
-            <Button onClick={() => this.addToLibraryAndCollection(movie, this.props.store.user)}><AddCircleIcon/></Button>
+            <ResultsVsLibrary 
+            filmId={movie.id}
+            />
             </Box>
             </Grid>
             </Grid>
