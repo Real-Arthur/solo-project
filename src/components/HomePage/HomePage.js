@@ -9,6 +9,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import FullCast from '../FullCast/FullCast';
 import SearchPage from '../SearchPage/SearchPage';
+import SideBarLibrary from '../SideBarLibrary/SideBarLibrary';
 import AdditionalUserInfo from '../AdditionalUserInfo/AdditionalUserInfo';
 import Nav from '../Nav/Nav';
 import { Container, Box, Typography } from '@material-ui/core';
@@ -39,13 +40,7 @@ class HomePage extends Component {
             </Box>          
             <Box order={3} width="10%">
             <Typography>Library</Typography>
-            {this.props.store.collectionReducer.map((movie, i) =>
-                <InfoPage
-                  id={i}
-                  movieId={movie.id}
-                  title={movie.title}
-                />
-              )} 
+            <SideBarLibrary />
             </Box>
             </Box>
         </Container>
@@ -64,13 +59,7 @@ class HomePage extends Component {
                 </Box>          
                 <Box order={3} width="10%">
                 <Typography>Library</Typography>
-                {this.props.store.collectionReducer.map((movie, i) =>
-                    <InfoPage
-                        id={i}
-                        movieId={movie.id}
-                        title={movie.title}
-                    />
-                    )} 
+                <SideBarLibrary />
                 </Box>
                 </Box>
             </Container>
