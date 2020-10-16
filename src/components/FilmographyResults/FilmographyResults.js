@@ -9,7 +9,6 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import AdditionalUserInfo from '../AdditionalUserInfo/AdditionalUserInfo';
 import Nav from '../Nav/Nav';
-import TitleResults from '../SearchResults/TitleResults';
 
 // Basic class component structure for React with default state
 // value setup. When making a new component be sure to replace
@@ -46,13 +45,16 @@ class FilmographyResults extends Component {
         <Box><UserPage /></Box>
         <Box display="flex" flexDirection="row" flexWrap="nowrap">       
         <Box order={1} width="15%">           
-          <LoginPage/>
+          <LoginPage />
           <RegisterPage />
         </Box>         
           <Box order={2} width="80%">
             {this.props.store.filmography.map( film =>
+            <Box> 
+            {/* <img src={`https://image.tmdb.org/t/p/w300${film.backdrop_path}`} /> */}
+            <img src={`https://image.tmdb.org/t/p/w300${film.poster_path}`} />
                 <Typography>{film.character} in {film.original_title}</Typography>
-
+          </Box>
             )}
           </Box>          
           <Box order={3} width="10%">
@@ -76,7 +78,15 @@ class FilmographyResults extends Component {
               <Box display="flex" flexDirection="row" flexWrap="nowrap">       
               <Box order={1} width="15%">           
               <AdditionalUserInfo />
-              </Box>         
+              </Box> 
+              <Box order={2} width="80%">
+            {this.props.store.filmography.map( film =>
+              <Box>
+                <img src={`https://image.tmdb.org/t/p/w300${film.poster_path}`} />
+                <Typography>{film.character} in {film.original_title}</Typography>
+              </Box>
+            )}
+              </Box>    
 
               </Box>          
               <Box order={3} width="10%">
