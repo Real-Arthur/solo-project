@@ -6,6 +6,7 @@ import titleReducer from './title.reducer';
 import personReducer from './person.reducer';
 import castReducer from './cast.reducer';
 import currentReducer from './current.reducer';
+import filmography from './filmography.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -20,7 +21,8 @@ const rootReducer = combineReducers({
   titleReducer, // will capture title search results
   personReducer,
   castReducer,
-  currentReducer
+  currentReducer,
+  filmography
 });
 
 export default rootReducer;
