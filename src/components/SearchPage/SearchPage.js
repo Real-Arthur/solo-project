@@ -92,7 +92,6 @@ class SearchPage extends Component {
         <TextField 
         fullWidth 
         variant="outlined"
-        label="Search Movies"
         value={this.state.search.movieTitle}
         InputProps={{
           startAdornment: (
@@ -119,7 +118,6 @@ class SearchPage extends Component {
         <TextField 
         fullWidth 
         variant="outlined"
-        label="Search People"
         value={this.state.search.personName}
         InputProps={{
           startAdornment: (

@@ -41,8 +41,8 @@ function* addToCollection(action) {
 
 
 function* collectionSaga() {
-    yield takeLatest('FETCH_COLLECTION', fetchCollection);
-    yield takeLatest('ADD_TO_COLLECTION', addToCollection);
+    yield takeEvery('FETCH_COLLECTION', fetchCollection);
+    yield takeEvery('ADD_TO_COLLECTION', addToCollection);
   }
 
   export default collectionSaga;

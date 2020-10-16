@@ -1,4 +1,6 @@
-import { CardActionArea, CardHeader, TextField } from '@material-ui/core';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import mapStoreToProps from '../../redux/mapStoreToProps';
 import React, { useState } from 'react';
 import { Card, Grid, Typography, CardContent, Button } from "@material-ui/core";
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
@@ -17,7 +19,7 @@ console.log('props', props);
     <Card>
         <Grid container justify="space-between" >
             <Grid flexGrow={1} item spacing="ml">
-            <Typography>{props.title}</Typography>
+            <Typography>{props.store.currentReducer}</Typography>
             </Grid>
             <Grid item spacing="mr">
             <Button><ArrowBackIcon /></Button>
@@ -25,7 +27,7 @@ console.log('props', props);
             </Grid>
             
         <Grid container direction="column" spacing={0}>
-            {props.castList.map(cast =>
+            {props.store.castReducer.map(cast =>
                 <Grid item xs={12} key={cast.cast_id}>
                    <Grid container direction="row" justify="space-between" alignItems="center">
                     <img src={`https://image.tmdb.org/t/p/w300${cast.profile_path}`} />
@@ -40,4 +42,4 @@ console.log('props', props);
   );
 }
 
-export default CastListResults;
+export default connect(mapStoreToProps)(withRouter((CastListResults)));
