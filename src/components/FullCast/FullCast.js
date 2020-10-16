@@ -30,10 +30,12 @@ class FullCast extends Component {
         name: personName
       }
     })
+    this.props.history.push('/home')
   }
 
   render() {
     console.log('Looking up cast of', this.props.store.castReducer);
+    console.log('Looking up cast of', this.props);
     
     if(Object.entries(this.props.store.user).length === 0) {
       return (
