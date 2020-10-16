@@ -30,7 +30,7 @@ console.log('props', props);
                    <Grid container direction="row" justify="space-between" alignItems="center">
                     <img src={`https://image.tmdb.org/t/p/w300${cast.profile_path}`} />
                     <Typography>{cast.name} as {cast.character}</Typography>
-                    <Button onClick={() => props.findFilms(cast.cast_id)}><InfoIcon /></Button> 
+                    <Button onClick={() => props.findFilmography(cast.id, cast.name)}><InfoIcon /></Button> 
                     </Grid>
                     </Grid>
                     

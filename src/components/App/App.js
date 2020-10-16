@@ -22,6 +22,7 @@ class App extends Component {
   render() {
     return (
       <Router>
+        <Redirect from="/" to="/home" />
         <Switch>
           <Route path="/home" exact component={HomePage} />
           <Route path="/library" exact component={LibraryPage} />

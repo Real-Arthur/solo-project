@@ -21,9 +21,15 @@ class FullCast extends Component {
     currentMovie: ""
   };
 
-  findFilms = (value) => {
-    console.log(`find this person's films`, value);
-    
+  findFilmography = (personId, personName) => {
+    console.log('Person id', personId, personName);
+    this.props.dispatch({
+      type: 'FETCH_FILMOGRAPHY',
+      payload: {
+        id: personId,
+        name: personName
+      }
+    })
   }
 
   render() {
@@ -43,7 +49,7 @@ class FullCast extends Component {
             <CastListResults 
             castList={this.props.store.castReducer}
             title={this.props.store.currentReducer}
-            findFilms={this.findFilms()}
+            findFilmography={this.findFilmography}
             />
           </Box>          
           <Box order={3} width="10%">
@@ -72,6 +78,7 @@ class FullCast extends Component {
                   <CastListResults 
                   castList={this.props.store.castReducer}
                   title={this.props.store.currentReducer}
+                  findFilmography={this.findFilmography}
                   />
               </Box>          
               <Box order={3} width="10%">
