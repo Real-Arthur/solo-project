@@ -9,6 +9,7 @@ import SideBarLibrary from '../SideBarLibrary/SideBarLibrary';
 import AdditionalUserInfo from '../AdditionalUserInfo/AdditionalUserInfo';
 import Nav from '../Nav/Nav';
 import { Container, Box, Typography } from '@material-ui/core';
+import LogOutButton from '../LogOutButton/LogOutButton';
 
 
 // Basic class component structure for React with default state
@@ -44,6 +45,7 @@ class HomePage extends Component {
         return (
             <Container>
                 <Box><Nav /></Box>
+                <Box><LogOutButton /></Box>
                 <Box display="flex" flexDirection="row" flexWrap="nowrap">       
                 <Box order={1} width="15%">           
                 <AdditionalUserInfo />

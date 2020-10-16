@@ -81,8 +81,8 @@ class FilmographyResults extends Component {
         </Box>
           <Box order={2} width="75">         
           <FilmsList 
-          addToLibraryAndCollection={this.addToLibraryAndCollection}
           findCast={this.findCast}
+          loggedIn={false}
           />
           </Box>   
           <Box order={3} width="10%">
@@ -102,7 +102,9 @@ class FilmographyResults extends Component {
               </Box>    
                 <Box order={2} width="75">
               <FilmsList 
-              
+              addToLibraryAndCollection={this.addToLibraryAndCollection}
+              findCast={this.findCast}
+              loggedIn={true}
               />
               </Box>
                       
