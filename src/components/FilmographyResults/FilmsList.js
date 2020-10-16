@@ -12,7 +12,7 @@ import AddCircleIcon from '@material-ui/icons/AddCircle';
 function FilmsList(props) {
     const [currentSearch, setCurrent] = useState(props.store.currentSearch);
   
-
+    if(props.loggedIn){
   return (
     <Box >
         <Grid container direction="column" spacing={0}>
@@ -32,7 +32,28 @@ function FilmsList(props) {
             )}
             </Grid>
     </Box>
-  );
+  );} else {
+            return (
+                <Box >
+                    <Grid container direction="column" spacing={0}>
+                    {props.store.filmography.map(film =>
+                        <Grid item xs={12}>
+                            <Grid container direction="row" justify="space-between" alignItems="center">
+                            <img src={`https://image.tmdb.org/t/p/w300${film.poster_path}`} />
+                        <Typography>{film.character}</Typography>
+                        <Typography>in</Typography>
+                        <Typography>{film.original_title}</Typography>
+                        <Box>
+                        <Button onClick={() => props.findCast(film)}><InfoIcon /></Button>
+                        </Box>
+                        </Grid>
+                        </Grid>
+                        )}
+                        </Grid>
+                </Box>
+              );  
+        }
+
 }
 
 export default connect(mapStoreToProps)(withRouter((FilmsList)));
