@@ -3,12 +3,13 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { Container, Box, Typography, Card } from '@material-ui/core';
-import UserPage from '../UserPage/UserPage';
-import InfoPage from '../InfoPage/InfoPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import AdditionalUserInfo from '../AdditionalUserInfo/AdditionalUserInfo';
 import Nav from '../Nav/Nav';
+import SideBarLibrary from '../SideBarLibrary/SideBarLibrary';
+import LogOutButton from '../LogOutButton/LogOutButton';
+import FilmsList from './FilmsList'
 
 // Basic class component structure for React with default state
 // value setup. When making a new component be sure to replace
@@ -19,6 +20,37 @@ class FilmographyResults extends Component {
     currentMovie: ""
   };
 
+  addToLibraryAndCollection = (movie, idNumber) => {
+    this.addToLibrary(movie);
+    this.addToCollection(movie, idNumber)
+  }
+
+  addToLibrary = (movie) => {
+    console.log('things to send', movie);
+    this.props.dispatch({
+      type: 'ADD_TO_LIBRARY',
+      payload: {
+        id: movie.id,
+        title: movie.title,
+        overview: movie.overview,
+        release_date: movie.release_date,
+        poster_path: movie.poster_path,
+      }
+    })
+  }
+
+  addToCollection = (movieId, idNumber) => {
+    console.log('value of movie', movieId.id);
+    console.log('value of id', idNumber.id);
+    console.log('value of username', idNumber.username);
+    this.props.dispatch({
+      type: 'ADD_TO_COLLECTION',
+      payload: {
+        id: idNumber.id,
+        movie: movieId.id
+      }
+    })
+  }
 
   findCast = (movie) => {
     console.log('Find cast of ', movie.id);
@@ -42,30 +74,20 @@ class FilmographyResults extends Component {
       return (
       <Container>
         <Box><Nav /></Box>
-        <Box><UserPage /></Box>
         <Box display="flex" flexDirection="row" flexWrap="nowrap">       
         <Box order={1} width="15%">           
           <LoginPage />
           <RegisterPage />
-        </Box>         
-          <Box order={2} width="80%">
-            {this.props.store.filmography.map( film =>
-            <Box> 
-            {/* <img src={`https://image.tmdb.org/t/p/w300${film.backdrop_path}`} /> */}
-            <img src={`https://image.tmdb.org/t/p/w300${film.poster_path}`} />
-                <Typography>{film.character} in {film.original_title}</Typography>
-          </Box>
-            )}
-          </Box>          
+        </Box>
+          <Box order={2} width="75">         
+          <FilmsList 
+          addToLibraryAndCollection={this.addToLibraryAndCollection}
+          findCast={this.findCast}
+          />
+          </Box>   
           <Box order={3} width="10%">
           <Typography>Library</Typography>
-          {this.props.store.collectionReducer.map((movie, i) =>
-              <InfoPage
-                id={i}
-                movieId={movie.id}
-                title={movie.title}
-              />
-            )} 
+          <SideBarLibrary />
           </Box>
           </Box>
       </Container>
@@ -73,32 +95,21 @@ class FilmographyResults extends Component {
   else {
       return (
           <Container>
-              <Box><Nav /></Box>
-              <Box><UserPage /></Box>
+              <Box><Nav /><LogOutButton className="log-in"/></Box>
               <Box display="flex" flexDirection="row" flexWrap="nowrap">       
               <Box order={1} width="15%">           
               <AdditionalUserInfo />
-              </Box> 
-              <Box order={2} width="80%">
-            {this.props.store.filmography.map( film =>
-              <Box>
-                <img src={`https://image.tmdb.org/t/p/w300${film.poster_path}`} />
-                <Typography>{film.character} in {film.original_title}</Typography>
-              </Box>
-            )}
               </Box>    
-
-              </Box>          
+                <Box order={2} width="75">
+              <FilmsList 
+              
+              />
+              </Box>
+                      
               <Box order={3} width="10%">
               <Typography>Library</Typography>
-              {this.props.store.collectionReducer.map((movie, i) =>
-                  <InfoPage
-                      id={i}
-                      movieId={movie.id}
-                      title={movie.title}
-                  />
-                  )} 
-             
+              <SideBarLibrary />
+              </Box>
               </Box>
           </Container>
               );
