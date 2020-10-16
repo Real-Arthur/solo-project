@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
 // Basic functional component structure for React with default state
@@ -17,4 +18,4 @@ function TemplateFunction(props) {
   );
 }
 
-export default connect(mapStoreToProps)(TemplateFunction);
+export default connect(mapStoreToProps)(withRouter((TemplateFunction)));

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import { withRouter } from 'react-router';
 
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { TextField, Card, Button } from '@material-ui/core';
@@ -9,7 +9,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import TheatersIcon from '@material-ui/icons/Theaters';
 import TitleResults from '../SearchResults/TitleResults';
-import PersonResults from '../SearchResults/PersonResults';
+import PersonResults from '../PersonResults/PersonResults';
 
 
 
@@ -74,6 +74,11 @@ class SearchPage extends Component {
       type: 'FETCH_CAST',
       payload: movie.id
     })
+    this.props.dispatch({
+      type: 'SET_CURRENT',
+      payload: movie.title
+    })
+    this.props.history.push('/fullCast')
   }
 
 
@@ -139,4 +144,4 @@ class SearchPage extends Component {
   }
 }
 
-export default connect(mapStoreToProps)(SearchPage);
+export default connect(mapStoreToProps)(withRouter((SearchPage)));

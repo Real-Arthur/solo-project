@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-import './SearchResults.css';
 import { Grid, Button, Container, Typography } from '@material-ui/core';
 import InfoIcon from '@material-ui/icons/Info';
 
