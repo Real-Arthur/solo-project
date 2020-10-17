@@ -19,9 +19,6 @@ const Nav = (props) => {
 
   return (
     <Container>
-      <Link to="/home">
-        <Typography variant="h2" className="nav-title">Cast Watch</Typography>
-      </Link>
       {/* Always show this link since the home and library pages are not protected */}
         <Link className="nav-link" to="/home">Home</Link>
         <Link className="nav-link" to="/library">

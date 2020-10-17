@@ -10,18 +10,25 @@ import { Typography, Box, Grid, Button } from '@material-ui/core';
 // value setup. When making a new component be sure to replace the
 // component name TemplateFunction with the name for the new component.
 function ResultsVsLibrary(props) {
-  // Using hooks we're creating local state for a "heading" variable with
-  // a default value of 'Functional Component'
-let inLibrary = useRef(props.store.collectionReducer.filter(item => item.id === props.filmId))
+function doBoth(user, movie) {
+    props.addToLibraryAndCollection(user, movie);
+    props.recheck();
+}
+
+
+
+let inLibrary = useRef(props.store.collectionReducer.filter(title => title.id === props.movie.id))
   
-  const [heading, setHeading] = useState('Functional Component');
+
   if(inLibrary.current.length > 0) {
       return (
           <Button><IndeterminateCheckBoxIcon /></Button>
       )
   } else {
       return (
-          <Button><AddCircleIcon /></Button>
+        <Button onClick={()=> doBoth(props.store.user, props.movie)}>
+              <AddCircleIcon />
+        </Button>
       )
   }
 }
