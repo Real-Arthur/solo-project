@@ -81,7 +81,6 @@ class SearchPage extends Component {
     this.props.history.push('/fullCast')
   }
 
-
   render() {
     console.log('state', this.state);
     console.log('state', this.props);
@@ -109,7 +108,8 @@ class SearchPage extends Component {
         }}
         onChange={(event) => this.searchTitle(event)}
         />
-        <TitleResults findCast={this.findCast}/>
+        <TitleResults 
+        findCast={this.findCast} />
       </Card>
     );
       } else {
