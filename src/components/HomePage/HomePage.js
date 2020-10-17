@@ -17,16 +17,7 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 // the component name TemplateClass with the name for the new
 // component.
 class HomePage extends Component {
-  state = {
-    load: true
-  };
-
-  recheck = () => {
-    console.log('This button!!!');
-    // this.setState({
-    //   load: !this.load
-    // })
-  }
+  
 
   render() {
     if(Object.entries(this.props.store.user).length === 0) {
@@ -43,7 +34,7 @@ class HomePage extends Component {
             <RegisterPage />
           </Box>         
             <Box order={2} width="80%">
-              <SearchPage recheck={this.recheck}/>
+              <SearchPage />
             </Box>          
             <Box order={3} width="10%">
             <Typography>Library</Typography>
@@ -66,7 +57,7 @@ class HomePage extends Component {
                 <AdditionalUserInfo />
                 </Box>         
                 <Box order={2} width="80%">
-                    <SearchPage recheck={this.recheck}/>
+                    <SearchPage />
                 </Box>          
                 <Box order={3} width="10%">
                 <Typography>Library</Typography>

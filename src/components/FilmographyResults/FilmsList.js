@@ -30,7 +30,7 @@ function FilmsList(props) {
             <ResultsVsLibrary
             addToLibraryAndCollection={props.addToLibraryAndCollection} 
             movie={film}
-            recheck={this.recheck}
+            recheck={this.props.recheck}
             />
             </Grid>
             </Grid>

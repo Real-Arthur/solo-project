@@ -5,6 +5,7 @@ import { Grid, Button, Container, Typography, Box } from '@material-ui/core';
 import InfoIcon from '@material-ui/icons/Info';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import ResultsVsLibrary from '../ResultsVsLibrary/ResultsVsLibrary';
+import { put } from 'redux-saga/effects';
 
 class TitleResults extends Component {
 
@@ -41,6 +42,10 @@ class TitleResults extends Component {
       }
     })
   }
+  
+  recheck = () => {
+    console.log('Recheck');
+  }
 
   render() {
     console.log('movies list', this.props.store.titleReducer);
@@ -74,7 +79,7 @@ class TitleResults extends Component {
             <ResultsVsLibrary
             movie={movie}
             addToLibraryAndCollection={this.addToLibraryAndCollection}
-            recheck={this.props.recheck}
+            recheck={this.recheck}
             />
             </Box>
             </Grid>

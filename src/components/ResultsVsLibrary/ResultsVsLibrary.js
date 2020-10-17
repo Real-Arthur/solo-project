@@ -15,11 +15,8 @@ function doBoth(user, movie) {
     props.recheck();
 }
 
-
-
 let inLibrary = useRef(props.store.collectionReducer.filter(title => title.id === props.movie.id))
   
-
   if(inLibrary.current.length > 0) {
       return (
           <Button><IndeterminateCheckBoxIcon /></Button>
