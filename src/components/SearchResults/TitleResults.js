@@ -8,9 +8,11 @@ import ResultsVsLibrary from '../ResultsVsLibrary/ResultsVsLibrary';
 
 class TitleResults extends Component {
 
-  addToLibraryAndCollection = (movie, idNumber) => {
+  addToLibraryAndCollection = (idNumber, movie) => {
+    console.log('id number and movie', idNumber.id, movie);
+    
     this.addToLibrary(movie);
-    this.addToCollection(movie, idNumber)
+    this.addToCollection(movie, idNumber.id)
   }
 
   addToLibrary = (movie) => {
@@ -29,18 +31,16 @@ class TitleResults extends Component {
 
   addToCollection = (movieId, idNumber) => {
     console.log('value of movie', movieId.id);
-    console.log('value of id', idNumber.id);
+    console.log('value of id', idNumber);
     console.log('value of username', idNumber.username);
     this.props.dispatch({
       type: 'ADD_TO_COLLECTION',
       payload: {
-        id: idNumber.id,
+        id: idNumber,
         movie: movieId.id
       }
     })
   }
-
-
 
   render() {
     console.log('movies list', this.props.store.titleReducer);
@@ -71,8 +71,10 @@ class TitleResults extends Component {
             <Typography>{movie.title}</Typography>
             <Box>
             <Button onClick={() => this.props.findCast(movie)}><InfoIcon /></Button>
-            <ResultsVsLibrary 
-            filmId={movie.id}
+            <ResultsVsLibrary
+            movie={movie}
+            addToLibraryAndCollection={this.addToLibraryAndCollection}
+            recheck={this.props.recheck}
             />
             </Box>
             </Grid>

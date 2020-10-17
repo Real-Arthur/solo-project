@@ -1,4 +1,4 @@
-import { Typography, Box, Grid, Button } from '@material-ui/core';
+import { Typography, Box, Grid, Button, Card } from '@material-ui/core';
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -15,7 +15,7 @@ function FilmsList(props) {
   
     if(props.loggedIn){
   return (
-    <Box >
+    <Card>
         <Grid container direction="column" spacing={0}>
         {props.store.filmography.map(film =>
             <Grid item xs={12}>
@@ -24,22 +24,26 @@ function FilmsList(props) {
             <Typography>{film.character}</Typography>
             <Typography>in</Typography>
             <Typography>{film.original_title}</Typography>
-            <Box>
+            <Grid item>
             <Button onClick={() => props.findCast(film)}><InfoIcon /></Button>
             
-            <ResultsVsLibrary 
-            filmId={film.id}
+            <ResultsVsLibrary
+            addToLibraryAndCollection={props.addToLibraryAndCollection} 
+            movie={film}
+            recheck={this.recheck}
             />
-            
-            </Box>
+            </Grid>
             </Grid>
             </Grid>
             )}
             </Grid>
-    </Box>
+    </Card>
   );} else {
             return (
-                <Box >
+                <Card>
+                <Grid container>
+
+                </Grid>
                     <Grid container direction="column" spacing={0}>
                     {props.store.filmography.map(film =>
                         <Grid item xs={12}>
@@ -48,14 +52,14 @@ function FilmsList(props) {
                         <Typography>{film.character}</Typography>
                         <Typography>in</Typography>
                         <Typography>{film.original_title}</Typography>
-                        <Box>
+                        <Grid item>
                         <Button onClick={() => props.findCast(film)}><InfoIcon /></Button>
-                        </Box>
+                        </Grid>
                         </Grid>
                         </Grid>
                         )}
                         </Grid>
-                </Box>
+                        </Card>
               );  
         }
 

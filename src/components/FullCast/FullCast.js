@@ -41,7 +41,7 @@ class FullCast extends Component {
       <Container>
         <Box><Nav /></Box>
         <Box display="flex" flexDirection="row" flexWrap="nowrap">       
-        <Box order={1} width="15%">           
+        <Box order={1} width="10%">           
           <LoginPage/>
           <RegisterPage />
         </Box>         
@@ -62,7 +62,7 @@ class FullCast extends Component {
           <Container>
               <Box><Nav /></Box>
               <Box display="flex" flexDirection="row" flexWrap="nowrap">       
-              <Box order={1} width="15%">           
+              <Box order={1} width="10%">           
               <AdditionalUserInfo />
               </Box>         
               <Box order={2} width="80%">

@@ -20,9 +20,11 @@ class FilmographyResults extends Component {
     currentMovie: ""
   };
 
-  addToLibraryAndCollection = (movie, idNumber) => {
+  addToLibraryAndCollection = (idNumber, movie) => {
+    console.log('id number and movie', idNumber.id, movie);
+    
     this.addToLibrary(movie);
-    this.addToCollection(movie, idNumber)
+    this.addToCollection(movie, idNumber.id)
   }
 
   addToLibrary = (movie) => {
@@ -41,12 +43,12 @@ class FilmographyResults extends Component {
 
   addToCollection = (movieId, idNumber) => {
     console.log('value of movie', movieId.id);
-    console.log('value of id', idNumber.id);
+    console.log('value of id', idNumber);
     console.log('value of username', idNumber.username);
     this.props.dispatch({
       type: 'ADD_TO_COLLECTION',
       payload: {
-        id: idNumber.id,
+        id: idNumber,
         movie: movieId.id
       }
     })
@@ -75,11 +77,11 @@ class FilmographyResults extends Component {
       <Container>
         <Box><Nav /></Box>
         <Box display="flex" flexDirection="row" flexWrap="nowrap">       
-        <Box order={1} width="15%">           
+        <Box order={1} width="10%">           
           <LoginPage />
           <RegisterPage />
         </Box>
-          <Box order={2} width="75">         
+          <Box order={2} width="80">         
           <FilmsList 
           findCast={this.findCast}
           loggedIn={false}
@@ -97,10 +99,10 @@ class FilmographyResults extends Component {
           <Container>
               <Box><Nav /><LogOutButton className="log-in"/></Box>
               <Box display="flex" flexDirection="row" flexWrap="nowrap">       
-              <Box order={1} width="15%">           
+              <Box order={1} width="10%">           
               <AdditionalUserInfo />
               </Box>    
-                <Box order={2} width="75">
+                <Box order={2} width="80">
               <FilmsList 
               addToLibraryAndCollection={this.addToLibraryAndCollection}
               findCast={this.findCast}

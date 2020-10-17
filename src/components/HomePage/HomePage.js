@@ -8,7 +8,7 @@ import SearchPage from '../SearchPage/SearchPage';
 import SideBarLibrary from '../SideBarLibrary/SideBarLibrary';
 import AdditionalUserInfo from '../AdditionalUserInfo/AdditionalUserInfo';
 import Nav from '../Nav/Nav';
-import { Container, Box, Typography } from '@material-ui/core';
+import { Container, Box, Typography, Grid } from '@material-ui/core';
 import LogOutButton from '../LogOutButton/LogOutButton';
 
 
@@ -18,21 +18,32 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 // component.
 class HomePage extends Component {
   state = {
-    heading: 'Class Component',
+    load: true
   };
+
+  recheck = () => {
+    console.log('This button!!!');
+    // this.setState({
+    //   load: !this.load
+    // })
+  }
 
   render() {
     if(Object.entries(this.props.store.user).length === 0) {
         return (
         <Container>
-          <Box><Nav /></Box>
+          <Grid container direction="row" justify="space-between" alignItems="center">
+                <Grid item><Nav /></Grid>
+                <Grid item><Typography variant="h1">CAST WATCH</Typography></Grid>
+          <Grid item><Typography>{       }</Typography></Grid>
+                </Grid>
           <Box display="flex" flexDirection="row" flexWrap="nowrap">       
-          <Box order={1} width="15%">           
+          <Box order={1} width="10%">           
             <LoginPage/>
             <RegisterPage />
           </Box>         
             <Box order={2} width="80%">
-              <SearchPage />
+              <SearchPage recheck={this.recheck}/>
             </Box>          
             <Box order={3} width="10%">
             <Typography>Library</Typography>
@@ -44,14 +55,18 @@ class HomePage extends Component {
     else {
         return (
             <Container>
-                <Box><Nav /></Box>
-                <Box><LogOutButton /></Box>
+                <Grid container direction="row" justify="space-between" alignItems="center">
+                <Grid item><Nav /></Grid>
+                <Grid item><Typography variant="h1">CAST WATCH</Typography></Grid>
+                
+                <Grid item><LogOutButton /></Grid>
+                </Grid>
                 <Box display="flex" flexDirection="row" flexWrap="nowrap">       
-                <Box order={1} width="15%">           
+                <Box order={1} width="10%">           
                 <AdditionalUserInfo />
                 </Box>         
                 <Box order={2} width="80%">
-                    <SearchPage />
+                    <SearchPage recheck={this.recheck}/>
                 </Box>          
                 <Box order={3} width="10%">
                 <Typography>Library</Typography>
