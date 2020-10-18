@@ -28,14 +28,14 @@ class HomePage extends Component {
           <Grid item><Typography>{       }</Typography></Grid>
                 </Grid>
           <Box display="flex" flexDirection="row" flexWrap="nowrap">       
-          <Box order={1} width="10%">           
+          <Box order={1} flexShrink={2}>           
             <LoginPage/>
             <RegisterPage />
           </Box>         
-            <Box order={2} width="80%">
+            <Box order={2} width="100%">
               <SearchPage />
             </Box>          
-            <Box order={3} width="10%">
+            <Box order={3} flexShrink={3}>
             <Typography>Library</Typography>
             <SideBarLibrary />
             </Box>
@@ -47,19 +47,19 @@ class HomePage extends Component {
             <Container>
                 <Grid container direction="row" justify="space-between" alignItems="center">
                 <Grid item><Nav /></Grid>
-                <Grid item ><Button onClick={this.reset}>Reset Search</Button></Grid>
+                {/* <Grid item ><Button onClick={this.reset}>Reset Search</Button></Grid> */}
                 <Grid item><Typography variant="h1">CAST WATCH</Typography></Grid>
                 
                 <Grid item><LogOutButton /></Grid>
                 </Grid>
                 <Box display="flex" flexDirection="row" flexWrap="nowrap">       
-                <Box order={1} width="10%">           
+                <Box order={1} flexShrink={2}>           
                 <AdditionalUserInfo />
                 </Box>         
-                <Box order={2} width="80%">
+                <Box order={2} width="100%">
                     <SearchPage />
                 </Box>          
-                <Box order={3} width="10%">
+                <Box order={3} flexShrink={3}>
                 <Typography>Library</Typography>
                 <SideBarLibrary />
                 </Box>
