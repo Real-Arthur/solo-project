@@ -18,10 +18,10 @@ console.log('props', props);
   return (
     <Card>
         <Grid container justify="space-between" >
-            <Grid flexGrow={1} item spacing="ml">
+            <Grid container spacing={0}>
             <Typography>{props.store.currentReducer}</Typography>
             </Grid>
-            <Grid item spacing="mr">
+            <Grid container spacing={0}>
             <Button><ArrowBackIcon /></Button>
             </Grid>
             </Grid>

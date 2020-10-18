@@ -104,7 +104,7 @@ class FilmographyResults extends Component {
               </Box>    
                 <Box order={2} width="80">
               <FilmsList 
-              addToLibraryAndCollection={this.addToLibraryAndCollection}
+              // addToLibraryAndCollection={this.addToLibraryAndCollection}
               findCast={this.findCast}
               loggedIn={true}
               />

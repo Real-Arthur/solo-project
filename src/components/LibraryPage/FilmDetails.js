@@ -33,11 +33,11 @@ function FilmDetails(props) {
             <img src={`https://image.tmdb.org/t/p/w300${props.store.detailsReducer.poster_path}`} />
             </Grid>
             <Grid item>
-            <Typography> Genres: 
+            
                 {props.store.detailsReducer.genres.map(genre =>
                 <Typography>{genre.name}</Typography>
             )}
-            </Typography>
+            
             </Grid>
             <Typography>{props.store.detailsReducer.overview}</Typography>
             <Grid item>

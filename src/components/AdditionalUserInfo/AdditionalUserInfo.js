@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-import { Container } from '@material-ui/core';
+import { Container, Grid } from '@material-ui/core';
+import CollectionVsFilmography from './CollectionVsFilmography';
 
 // Basic class component structure for React with default state
 // value setup. When making a new component be sure to replace
@@ -15,7 +16,12 @@ class AdditionalUserInfo extends Component {
   render() {
     return (
       <Container fixed>
-        <h2>{this.state.heading}</h2>
+        {this.props.store.collectionReducer.map((movie, i) =>
+        <Grid container key={i}>
+        <CollectionVsFilmography 
+        movie={movie}
+        /></Grid>
+        )}
       </Container>
     );
   }
