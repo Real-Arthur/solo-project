@@ -33,7 +33,7 @@ router.get('/:id', (req, res) => {
  */
 router.post('/add', (req, res) => {
   // POST route code here
-  console.log('body', req.body);
+  console.log('library post body', req.body);
   let queryString = `INSERT INTO "movie" ("id", "title", "overview", "release_date", "poster_path")
   VALUES ($1, $2, $3, $4, $5)
   ON CONFLICT ("id") DO UPDATE
