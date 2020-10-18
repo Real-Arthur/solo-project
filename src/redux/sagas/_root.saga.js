@@ -9,6 +9,7 @@ import collectionSaga from './collection.saga';
 import filmographySaga from './filmography.saga';
 import castSaga from './cast.saga';
 import detailsSaga from './details.saga';
+import deleteSaga from './delete.saga';
 
 
 // rootSaga is the primary saga.
@@ -29,6 +30,7 @@ export default function* rootSaga() {
     filmographySaga(),
     castSaga(),
     collectionSaga(),
-    detailsSaga()
+    detailsSaga(),
+    deleteSaga()
   ]);
 }

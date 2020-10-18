@@ -22,7 +22,7 @@ function ResultsVsLibrary(props){
       )
   } else {
     return (
-        <Button><IndeterminateCheckBoxIcon /></Button>
+        <Button onClick={()=> props.deleteFromCollection(props.store.user, props.movie)}><IndeterminateCheckBoxIcon /></Button>
     )
   }
          

@@ -52,4 +52,23 @@ router.post('/add', (req, res) => {
 
 });
 
+router.delete('/delete', (req, res) => {
+  console.log('req body', req.body);
+  let userId = req.body.id;
+  let movieId = req.body.movie
+  console.log('userId and movieId', userId, movieId);
+  let queryString = `DELETE FROM "user_movie"
+  WHERE "user_id" = $1
+  AND
+  "movie_id" = $2;`;
+  pool.query(queryString, [userId, movieId])
+  .then(response => {
+    res.sendStatus(200)
+  })
+  .catch(error => {
+    res.sendStatus(500)
+  })
+
+})
+
 module.exports = router;

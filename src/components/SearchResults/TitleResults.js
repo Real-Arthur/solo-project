@@ -14,7 +14,6 @@ class TitleResults extends Component {
 
   addToLibraryAndCollection = (idNumber, movie) => {
     console.log('id number and movie', idNumber.id, movie);
-    
     this.addToLibrary(movie);
     this.addToCollection(movie, idNumber.id);
   }
@@ -49,6 +48,17 @@ class TitleResults extends Component {
       payload: {
         id: idNumber,
         movie: movieId.id
+      }
+    })
+  }
+
+  deleteFromCollection = (user, movie) => {
+    console.log('This is user and movie', user.id, movie.id);
+    this.props.dispatch({
+      type: 'DELETE_FROM_COLLECTION',
+      payload: {
+        id: user.id,
+        movie: movie.id
       }
     })
   }
@@ -87,6 +97,7 @@ class TitleResults extends Component {
             <ResultsVsLibrary
             movie={movie}
             addToLibraryAndCollection={this.addToLibraryAndCollection}
+            deleteFromCollection={this.deleteFromCollection}
             addToMatches={this.addToMatches}
             />
             </Box>
