@@ -8,12 +8,22 @@ import ResultsVsLibrary from '../ResultsVsLibrary/ResultsVsLibrary';
 import { put } from 'redux-saga/effects';
 
 class TitleResults extends Component {
+  state = {
+    matches: {}
+  }
 
   addToLibraryAndCollection = (idNumber, movie) => {
     console.log('id number and movie', idNumber.id, movie);
     
     this.addToLibrary(movie);
-    this.addToCollection(movie, idNumber.id)
+    this.addToCollection(movie, idNumber.id);
+  }
+
+  addToMatches = (value) => {
+    console.log('doing stuff', value)
+    this.setState({
+      matches: value
+    })
   }
 
   addToLibrary = (movie) => {
@@ -43,11 +53,9 @@ class TitleResults extends Component {
     })
   }
   
-  recheck = () => {
-    console.log('Recheck');
-  }
-
   render() {
+    console.log('state', this.state);
+    
     console.log('movies list', this.props.store.titleReducer);
     console.log('movies list', this.props.store.user.id);
     if(Object.entries(this.props.store.user).length === 0) {
@@ -79,7 +87,7 @@ class TitleResults extends Component {
             <ResultsVsLibrary
             movie={movie}
             addToLibraryAndCollection={this.addToLibraryAndCollection}
-            recheck={this.recheck}
+            addToMatches={this.addToMatches}
             />
             </Box>
             </Grid>

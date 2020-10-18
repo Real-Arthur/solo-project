@@ -16,15 +16,6 @@ function* addToLibrary(action) {
             poster_path: action.payload.poster_path
         }
     })
-    // console.log('user id', action.payload.user_id);
-    // console.log('movie id', action.payload.id);
-    // yield put({
-    //     type: 'ADD_TO_COLLECTION',
-    //     payload: {
-    //         user_id: action.payload.user_id,
-    //         movie_id: action.payload.id
-    //     }
-    // })
 }
 
 

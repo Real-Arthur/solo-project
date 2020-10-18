@@ -7,6 +7,7 @@ import personReducer from './person.reducer';
 import castReducer from './cast.reducer';
 import currentReducer from './current.reducer';
 import filmography from './filmography.reducer';
+import matchesReducer from './matches.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -22,7 +23,8 @@ const rootReducer = combineReducers({
   personReducer,
   castReducer,
   currentReducer,
-  filmography
+  filmography,
+  // matchesReducer
 });
 
 export default rootReducer;
