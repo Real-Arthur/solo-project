@@ -8,7 +8,7 @@ import SearchPage from '../SearchPage/SearchPage';
 import SideBarLibrary from '../SideBarLibrary/SideBarLibrary';
 import AdditionalUserInfo from '../AdditionalUserInfo/AdditionalUserInfo';
 import Nav from '../Nav/Nav';
-import { Container, Box, Typography, Grid } from '@material-ui/core';
+import { Container, Box, Typography, Grid, Button } from '@material-ui/core';
 import LogOutButton from '../LogOutButton/LogOutButton';
 
 
@@ -17,8 +17,7 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 // the component name TemplateClass with the name for the new
 // component.
 class HomePage extends Component {
-  
-
+ 
   render() {
     if(Object.entries(this.props.store.user).length === 0) {
         return (
@@ -48,6 +47,7 @@ class HomePage extends Component {
             <Container>
                 <Grid container direction="row" justify="space-between" alignItems="center">
                 <Grid item><Nav /></Grid>
+                <Grid item ><Button onClick={this.reset}>Reset Search</Button></Grid>
                 <Grid item><Typography variant="h1">CAST WATCH</Typography></Grid>
                 
                 <Grid item><LogOutButton /></Grid>

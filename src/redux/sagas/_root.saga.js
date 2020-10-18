@@ -8,6 +8,7 @@ import personSaga from './person.saga';
 import collectionSaga from './collection.saga';
 import filmographySaga from './filmography.saga';
 import castSaga from './cast.saga';
+import matchesSaga from './matches.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -26,6 +27,7 @@ export default function* rootSaga() {
     personSaga(),
     filmographySaga(),
     castSaga(),
-    collectionSaga()
+    collectionSaga(),
+    // matchesSaga()
   ]);
 }

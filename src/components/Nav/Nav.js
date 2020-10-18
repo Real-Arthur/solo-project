@@ -7,6 +7,7 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 import {Container, Typography} from '@material-ui/core'
 
 const Nav = (props) => {
+  
   let loginLinkData = {
     path: '/login',
     text: 'Login / Register',
@@ -21,7 +22,7 @@ const Nav = (props) => {
     <Container>
       {/* Always show this link since the home and library pages are not protected */}
         <Link className="nav-link" to="/home">Home</Link>
-        <Link className="nav-link" to="/library">
+        <Link  className="nav-link" to="/library">
           Library
         </Link>
       {/* </div> */}
