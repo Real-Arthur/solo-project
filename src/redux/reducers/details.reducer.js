@@ -1,7 +1,9 @@
 const detailsReducer = (state = [], action) => {
     switch (action.type) {
       case 'SET_MOVIE_DETAILS':
-        return action.payload;
+        return action.payload;      
+      case 'RESET_MOVIE_DETAILS':
+        return [];
       default:
         return state;
     }

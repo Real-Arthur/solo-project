@@ -52,7 +52,6 @@ class LibraryPage extends Component {
           <Container>
               <Grid container direction="row" justify="space-between" alignItems="center">
               <Grid item><Nav /></Grid>
-              <Grid item ><Button onClick={this.reset}>Reset Search</Button></Grid>
               <Grid item><Typography variant="h1">CAST WATCH</Typography></Grid>
               
               <Grid item><LogOutButton /></Grid>

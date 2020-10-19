@@ -1,7 +1,9 @@
 const filmographyReducer = (state = [], action) => {
     switch (action.type) {
       case 'SET_FILMOGRAPHY':
-        return action.payload;
+        return action.payload;      
+      case 'RESET_FILMOGRAPHY':
+        return [];
       default:
         return state;
     }

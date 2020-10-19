@@ -4,7 +4,9 @@ const currentReducer = (state = [], action) => {
     
     switch (action.type) {
       case 'SET_CURRENT':
-        return action.payload;
+        return action.payload;     
+      case 'RESET_CURRENT':
+        return [];
       default:
         return state;
     }

@@ -5,6 +5,8 @@ const castReducer = (state = [], action) => {
     switch (action.type) {
       case 'SET_CAST':
         return action.payload;
+      case 'RESET_CAST':
+        return [];
       default:
         return state;
     }
