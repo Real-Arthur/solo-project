@@ -60,8 +60,8 @@ class FilmsList extends Component {
   return (
     <Card>
         <Grid container direction="column" spacing={0}>
-        {this.props.store.filmography.map(film =>
-            <Grid item xs={12}>
+        {this.props.store.filmography.map((film, i) =>
+            <Grid item xs={12} key={i}>
                 <Grid container direction="row" justify="space-between" alignItems="center">
                 <img src={`https://image.tmdb.org/t/p/w300${film.poster_path}`} />
             <Typography>{film.character}</Typography>

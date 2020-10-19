@@ -34,9 +34,11 @@ router.get('/:id', (req, res) => {
 router.post('/add', (req, res) => {
   // POST route code here
   console.log('library post body', req.body);
-  let queryString = `INSERT INTO "movie" ("id", "title", "overview", "release_date", "poster_path")
+  let queryString = `
+  INSERT INTO "movie" ("id", "title", "overview", "release_date", "poster_path")
   VALUES ($1, $2, $3, $4, $5)
-  ON CONFLICT ("id") DO UPDATE
+  ON CONFLICT ("id") DO 
+  UPDATE
 	SET "title" = $2,
 		"overview" = $3,
 		"release_date" = $4,

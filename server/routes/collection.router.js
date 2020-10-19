@@ -8,7 +8,8 @@ const router = express.Router();
 router.get('/:id', (req, res) => {
     console.log('COLLECTION ROUTER GET', req.params.id);
     let userId = parseInt(req.params.id);
-    let queryString = `SELECT DISTINCT "movie"."id", "movie"."title", "movie"."overview", "movie"."release_date", "movie"."poster_path" FROM "user_movie"
+    let queryString = `
+    SELECT DISTINCT "movie"."id", "movie"."title", "movie"."overview", "movie"."release_date", "movie"."poster_path" FROM "user_movie"
     JOIN "user"
     ON "user_movie"."user_id" = "user"."id"
     JOIN "movie"

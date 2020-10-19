@@ -43,7 +43,7 @@ class SearchPage extends Component {
         movieTitle: event.target.value,
       }
     })
-    if(event.target.value.length > 1) {
+    if(event.target.value.length > 0) {
       this.props.dispatch({
         type: 'SEARCH_BY_TITLE',
         payload: event.target.value
@@ -59,7 +59,7 @@ class SearchPage extends Component {
         personName: event.target.value,
       }
     })
-    if(event.target.value.length > 1) {
+    if(event.target.value.length > 0) {
       this.props.dispatch({
         type: 'SEARCH_BY_PERSON',
         payload: event.target.value

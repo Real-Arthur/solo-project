@@ -5,6 +5,7 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import {Container, Typography} from '@material-ui/core'
+import HomeButton from './HomeButton';
 
 const Nav = (props) => {
   
@@ -21,7 +22,7 @@ const Nav = (props) => {
   return (
     <Container>
       {/* Always show this link since the home and library pages are not protected */}
-        <Link className="nav-link" to="/home">Home</Link>
+        <HomeButton />
         <Link  className="nav-link" to="/library">
           Library
         </Link>

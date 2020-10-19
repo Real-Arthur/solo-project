@@ -7,6 +7,7 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import SearchPage from '../SearchPage/SearchPage';
 import SideBarLibrary from '../SideBarLibrary/SideBarLibrary';
 import AdditionalUserInfo from '../AdditionalUserInfo/AdditionalUserInfo';
+import BasicUserInfo from '../AdditionalUserInfo/BasicUserInfo';
 import Nav from '../Nav/Nav';
 import { Container, Box, Typography, Grid, Button } from '@material-ui/core';
 import LogOutButton from '../LogOutButton/LogOutButton';
@@ -54,7 +55,7 @@ class HomePage extends Component {
                 </Grid>
                 <Box display="flex" flexDirection="row" flexWrap="nowrap">       
                 <Box order={1} flexShrink={2}>           
-                <AdditionalUserInfo />
+                <BasicUserInfo />
                 </Box>         
                 <Box order={2} width="100%">
                     <SearchPage />
