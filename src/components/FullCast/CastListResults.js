@@ -22,7 +22,7 @@ console.log('props', props);
             <Typography>{props.store.currentReducer}</Typography>
             </Grid>
             <Grid container spacing={0}>
-            <Button><ArrowBackIcon /></Button>
+            {/* <Button><ArrowBackIcon /></Button> */}
             </Grid>
             </Grid>
             

@@ -3,12 +3,33 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-import { Grid, Button, Box } from "@material-ui/core";
+import { Grid, Button, Box, Card, TextField } from "@material-ui/core";
+import SearchIcon from '@material-ui/icons/Search';
+import InputAdornment from '@material-ui/core/InputAdornment';
 
 class SearchAndLibrary extends Component {
     state = {
-
+      searchQuery: '',
+      movieTitles: this.props.store.collectionReducer
     }
+
+    searchLibrary = (event) => {
+      console.log('event value', event.target.value);
+      console.log('', this.state.movieTitles);
+      
+      let newSearch = event.target.value;
+  
+      let searchedTitles = this.props.store.collectionReducer.filter(movie =>
+        movie.title.includes(newSearch)
+        )
+  
+      this.setState({
+        searchQuery: newSearch,
+        movieTitles: searchedTitles
+      })
+    }
+
+
     findFilmDetails = (movieToFindId) => {
         console.log('Movie Details Id', movieToFindId);
         this.props.dispatch({
@@ -18,10 +39,27 @@ class SearchAndLibrary extends Component {
     }
 
 render(){
+  console.log('state', this.state);
+  
   return (
       <Box maxHeight="900px" overflow="scroll">
+         <Card>
+        <TextField 
+        fullWidth
+        variant="filled"
+        value={this.state.searchQuery}
+        InputProps={{
+          startAdornment: (
+          <InputAdornment position="start">
+            <SearchIcon />
+          </InputAdornment>
+          )}}
+        onChange={(event) => this.searchLibrary(event)}
+        />
+
+      </Card>
     <Grid container direction="column" spacing={0} >
-        {this.props.store.collectionReducer.map((movie, i) =>
+        {this.state.movieTitles.map((movie, i) =>
         <Button key={i} onClick={() => this.findFilmDetails(movie.id)}>
         <Grid item xs={12}>
         <Typography>{movie.title}</Typography>
