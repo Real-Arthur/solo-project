@@ -74,7 +74,9 @@ class TitleResults extends Component {
           {this.props.store.titleReducer.map(movie =>
           <Grid item xs={12} key={movie.id}>
             <Grid container direction="row" justify="space-between" alignItems="center">
-            <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} />
+            <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} 
+            
+            />
             <Typography>{movie.title}</Typography>
             <Button onClick={() => this.props.findCast(movie)}><InfoIcon /></Button>
             </Grid>

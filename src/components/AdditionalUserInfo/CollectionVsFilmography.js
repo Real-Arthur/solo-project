@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-import { Box, Typography, Grid } from "@material-ui/core";
+import { Box, Typography, Grid, Button } from "@material-ui/core";
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -14,10 +14,13 @@ function CollectionVsFilmography(props) {
   
   const overlap = props.store.filmography.findIndex(film => film.id === props.movie.id)
 
+  
   if(overlap !== -1) {
   return (
     <Grid item key={props.movie.id}>
+      <Button>
       <Typography>{props.movie.title}</Typography>
+      </Button>
     </Grid>
     
   );
