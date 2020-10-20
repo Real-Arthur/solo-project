@@ -2,14 +2,17 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { withRouter } from 'react-router';
-import LoginPage from '../LoginPage/LoginPage';
-import RegisterPage from '../RegisterPage/RegisterPage';
+
+import RegisterForm from '../RegisterForm/RegisterForm';
+import LoginForm from '../LoginForm/LoginForm';
+
 import SearchPage from '../SearchPage/SearchPage';
 import SideBarLibrary from '../SideBarLibrary/SideBarLibrary';
 import BasicUserInfo from '../AdditionalUserInfo/BasicUserInfo';
 import Nav from '../Nav/Nav';
 import { Container, Box, Typography, Grid } from '@material-ui/core';
 import LogOutButton from '../LogOutButton/LogOutButton';
+import CollectionTopBar from '../AdditionalUserInfo/CollectionTopBar';
 
 
 // Basic class component structure for React with default state
@@ -30,14 +33,14 @@ class HomePage extends Component {
                 </Grid>
           <Box display="flex" flexDirection="row" flexWrap="nowrap">       
           <Box order={1} flexShrink={2}>           
-            <LoginPage/>
-            <RegisterPage />
+            <LoginForm />
+            <RegisterForm />
           </Box>         
             <Box order={2} width="100%">
               <SearchPage />
             </Box>          
             <Box order={3} flexShrink={3}>
-            <Typography>Library</Typography>
+            <Typography>Log In For Collection</Typography>
             <SideBarLibrary />
             </Box>
             </Box>
@@ -62,7 +65,7 @@ class HomePage extends Component {
                     <SearchPage />
                 </Box>          
                 <Box order={3} flexShrink={3}>
-                <Typography>Library</Typography>
+                  <CollectionTopBar />
                 <SideBarLibrary />
                 </Box>
                 </Box>

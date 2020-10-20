@@ -1,3 +1,4 @@
+import { Box, Grid, InputLabel, TextField, Button } from '@material-ui/core';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
@@ -28,41 +29,45 @@ class RegisterForm extends Component {
 
   render() {
     return (
-      <form className="formPanel" onSubmit={this.registerUser}>
+      <Box>
+        <Grid container>
+      {/* <form className="formPanel" onSubmit={this.registerUser}> */}
         <h2>Register User</h2>
         {this.props.store.errors.registrationMessage && (
           <h3 className="alert" role="alert">
             {this.props.store.errors.registrationMessage}
           </h3>
         )}
-        <div>
-          <label htmlFor="username">
+        <Grid item>
+          <InputLabel htmlFor="username">
             Username:
-            <input
+            <TextField
               type="text"
               name="username"
               value={this.state.username}
               required
               onChange={this.handleInputChangeFor('username')}
             />
-          </label>
-        </div>
-        <div>
-          <label htmlFor="password">
+          </InputLabel>
+        </Grid>
+        <Grid item>
+          <InputLabel htmlFor="password">
             Password:
-            <input
+            <TextField
               type="password"
               name="password"
               value={this.state.password}
               required
               onChange={this.handleInputChangeFor('password')}
             />
-          </label>
-        </div>
-        <div>
-          <input className="btn" type="submit" name="submit" value="Register" />
-        </div>
-      </form>
+          </InputLabel>
+        </Grid>
+        <Grid item>
+          <Button variant="outlined" color="primary" onClick={this.registerUser}>Register</Button>
+          {/* <input className="btn" type="submit" name="submit" value="Register" /> */}
+        </Grid>
+      {/* </form> */}
+      </Grid></Box>
     );
   }
 }

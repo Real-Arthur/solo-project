@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './Nav.css';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-import { Container } from '@material-ui/core'
+import { Box, MenuList, MenuItem } from '@material-ui/core'
 import HomeButton from './HomeButton';
+import LibraryButton from './LibraryButton';
 
 const Nav = (props) => {
   
@@ -19,14 +20,18 @@ const Nav = (props) => {
   }
 
   return (
-    <Container>
+    <Box>
       {/* Always show this link since the home and library pages are not protected */}
-        <HomeButton />
-        <Link  className="nav-link" to="/library">
+        <MenuList>
+         <MenuItem><HomeButton /></MenuItem>
+         <MenuItem><LibraryButton /></MenuItem>
+        </MenuList>
+        
+        {/* <Link  className="nav-link" to="/library">
           Library
-        </Link>
+        </Link> */}
       {/* </div> */}
-    </Container>
+    </Box>
   );
 };
 
