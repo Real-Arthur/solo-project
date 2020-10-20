@@ -6,21 +6,11 @@ import InfoIcon from '@material-ui/icons/Info';
 import ResultsVsLibrary from '../ResultsVsLibrary/ResultsVsLibrary';
 
 class TitleResults extends Component {
-  state = {
-    matches: {}
-  }
 
   addToLibraryAndCollection = (idNumber, movie) => {
     console.log('id number and movie', idNumber.id, movie);
     this.addToLibrary(movie);
     this.addToCollection(movie, idNumber.id);
-  }
-
-  addToMatches = (value) => {
-    console.log('doing stuff', value)
-    this.setState({
-      matches: value
-    })
   }
 
   addToLibrary = (movie) => {
@@ -100,7 +90,6 @@ class TitleResults extends Component {
             movie={movie}
             addToLibraryAndCollection={this.addToLibraryAndCollection}
             deleteFromCollection={this.deleteFromCollection}
-            addToMatches={this.addToMatches}
             />
             </Box>
             </Grid>

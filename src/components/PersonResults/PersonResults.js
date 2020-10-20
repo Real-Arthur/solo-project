@@ -18,6 +18,10 @@ class PersonResults extends Component {
         name: personName
       }
     })
+    this.props.dispatch({
+      type: 'SET_CURRENT',
+      payload: personName
+    })
     this.props.history.push('/films')
   }
 

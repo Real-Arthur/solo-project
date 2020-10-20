@@ -9,6 +9,8 @@ import AdditionalUserInfo from '../AdditionalUserInfo/AdditionalUserInfo';
 import CastListResults from './CastListResults';
 import Nav from '../Nav/Nav';
 import SideBarLibrary from '../SideBarLibrary/SideBarLibrary';
+import CollectionTopBar from '../AdditionalUserInfo/CollectionTopBar';
+import BasicUserInfo from '../AdditionalUserInfo/BasicUserInfo';
 
 // Basic class component structure for React with default state
 // value setup. When making a new component be sure to replace
@@ -38,7 +40,7 @@ class FullCast extends Component {
   render() {
     console.log('Looking up cast of', this.props.store.castReducer);
     console.log('Looking up cast of', this.props);
-    
+    // Not logged in   
     if(Object.entries(this.props.store.user).length === 0) {
       return (
       <Container>
@@ -54,27 +56,28 @@ class FullCast extends Component {
             />
           </Box>          
           <Box order={3} width="10%">
-          <Typography>Library</Typography>
+          <CollectionTopBar />
           <SideBarLibrary />
           </Box>
           </Box>
       </Container>
   );}
+  // Logged in   
   else {
       return (
           <Container>
               <Box><Nav /></Box>
               <Box display="flex" flexDirection="row" flexWrap="nowrap">       
-              <Box order={1} width="10%">           
-              <AdditionalUserInfo />
+              <Box order={1} flexShrink={2}>           
+              <BasicUserInfo />
               </Box>         
-              <Box order={2} width="80%">
+              <Box order={2} width="100%">
                   <CastListResults 
                   findFilmography={this.findFilmography}
                   />
               </Box>          
-              <Box order={3} width="10%">
-              <Typography>Library</Typography>
+              <Box order={3} flexShrink={2}>
+              <CollectionTopBar />
               <SideBarLibrary />
               </Box>
               </Box>

@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import React from 'react';
-import { Card, Grid, Typography, Button } from "@material-ui/core";
+import { Card, Grid, Typography, Button, Paper } from "@material-ui/core";
 import InfoIcon from '@material-ui/icons/Info';
 
 // Basic functional component structure for React with default state
@@ -17,8 +17,12 @@ console.log('props', props);
   return (
     <Card>
         <Grid container justify="space-between" >
-            <Grid container spacing={0}>
-            <Typography>{props.store.currentReducer}</Typography>
+            <Grid container spacing={0} justify="center">
+            <Grid item>
+            <Paper elevation={3} variant="outlined">
+            <Typography variant="h5">{props.store.currentReducer} Cast List</Typography>
+            </Paper>
+            </Grid>
             </Grid>
             <Grid container spacing={0}>
             {/* <Button><ArrowBackIcon /></Button> */}

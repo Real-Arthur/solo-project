@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-import { Card } from "@material-ui/core";
+import { Grid, Box, TextField, InputLabel, Button, Typography } from "@material-ui/core";
 
 class LoginForm extends Component {
   state = {
@@ -33,42 +33,48 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <Card>
-      <form className="formPanel" onSubmit={this.login}>
-        <h2>Login</h2>
+      <Box>
+      <Grid container direction="column" alignItems="flex-start">
+      {/* <form className="formPanel" onSubmit={this.login}> */}
+      <Grid item>
+        <Typography variant="h3">Login</Typography>
         {this.props.store.errors.loginMessage && (
           <h3 className="alert" role="alert">
             {this.props.store.errors.loginMessage}
           </h3>
         )}
-        <div>
-          <label htmlFor="username">
+        </Grid>
+        <Grid item>
+          <InputLabel htmlFor="username">
             Username:
-            <input
+            <TextField
               type="text"
               name="username"
               required
               value={this.state.username}
               onChange={this.handleInputChangeFor('username')}
             />
-          </label>
-        </div>
-        <div>
-          <label htmlFor="password">
+          </InputLabel>
+        </Grid>
+        <Grid item>
+          <InputLabel htmlFor="password">
             Password:
-            <input
+            <TextField
               type="password"
               name="password"
               required
               value={this.state.password}
               onChange={this.handleInputChangeFor('password')}
             />
-          </label>
-        </div>
-        <div>
-          <input className="btn" type="submit" name="submit" value="Log In" />
-        </div>
-      </form></Card>
+          </InputLabel>
+        </Grid>
+        <Grid item>
+          <Button variant="contained" color="primary" onClick={this.login}>Login</Button>
+          {/* <input className="btn" type="submit" name="submit" value="Log In" /> */}
+        </Grid>
+      {/* </form> */}
+      </Grid>
+      </Box>
     );
   }
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-import { Grid, Box } from '@material-ui/core';
+import { Grid, Box, Typography } from '@material-ui/core';
 import CollectionVsFilmography from './CollectionVsFilmography';
 
 // Basic class component structure for React with default state
@@ -16,6 +16,7 @@ class AdditionalUserInfo extends Component {
   render() {
     return (
       <Box minHeight="900px" maxHeight="900px" overflow="scroll">
+        <Typography>You've seen {this.props.store.currentReducer} in:</Typography>
         {this.props.store.collectionReducer.map((movie, i) =>
         <Grid container key={i}>
         <CollectionVsFilmography 

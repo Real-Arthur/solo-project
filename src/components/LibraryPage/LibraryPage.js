@@ -5,10 +5,10 @@ import { withRouter } from 'react-router';
 
 import { Container, Box, Typography, Grid, Card } from '@material-ui/core';
 import Nav from '../Nav/Nav';
-import LoginPage from '../LoginPage/LoginPage';
+import LoginForm from '../LoginForm/LoginForm';
 import LogOutButton from '../LogOutButton/LogOutButton';
 
-import RegisterPage from '../RegisterPage/RegisterPage';
+import RegisterForm from '../RegisterForm/RegisterForm';
 import FilmDetails from './FilmDetails';
 import SearchAndLibrary from './SearchAndLibrary';
 import SideBarSearch from './SideBarSearch';
@@ -33,8 +33,8 @@ class LibraryPage extends Component {
               </Grid>
         <Box display="flex" flexDirection="row" flexWrap="nowrap">       
         <Box order={1} width="10%">           
-          <LoginPage/>
-          <RegisterPage />
+          <LoginForm/>
+          <RegisterForm />
         </Box>         
           <Box order={2} width="80%">
             {/* <SearchPage /> */}
@@ -57,9 +57,9 @@ class LibraryPage extends Component {
               <Grid item><LogOutButton /></Grid>
               </Grid>
               <Box display="flex" flexDirection="row" flexWrap="nowrap">       
-              <Box order={1} flexShrink={1}>           
+              {/* <Box order={1} flexShrink={1}>           
               <SideBarSearch />
-              </Box>         
+              </Box>          */}
               <Box order={2} width="100%">
                   <SearchAndLibrary />
               </Box>          
