@@ -1,4 +1,4 @@
-import { put, takeLatest } from 'redux-saga/effects';
+import { put, takeLatest, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
 
 function* findMovieCast(action) {
@@ -26,7 +26,7 @@ function* findMovieCast(action) {
 
 
 function* castSaga() {
-    yield takeLatest('FETCH_CAST', findMovieCast);
+    yield takeEvery('FETCH_CAST', findMovieCast);
   }
 
   export default castSaga;

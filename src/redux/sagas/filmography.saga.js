@@ -40,8 +40,8 @@ function* filterFilmography(action) {
 }
 
 function* personSaga() {
-    yield takeLatest('FETCH_FILMOGRAPHY', findFilmography);
-    yield takeLatest('FILTER_FILMOGRAPHY', filterFilmography);
+    yield takeEvery('FETCH_FILMOGRAPHY', findFilmography);
+    yield takeEvery('FILTER_FILMOGRAPHY', filterFilmography);
   }
 
   export default personSaga;

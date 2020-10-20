@@ -19,6 +19,7 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 class HomePage extends Component {
  
   render() {
+    // if user is not logged in
     if(Object.entries(this.props.store.user).length === 0) {
         return (
         <Container>
@@ -42,6 +43,7 @@ class HomePage extends Component {
             </Box>
         </Container>
     );}
+    // User is logged in
     else {
         return (
             <Container>

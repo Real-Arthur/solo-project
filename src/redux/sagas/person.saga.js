@@ -33,8 +33,8 @@ function* filterPersonResults(action) {
 }
 
 function* personSaga() {
-    yield takeLatest('SEARCH_BY_PERSON', searchByPerson);
-    yield takeLatest('FILTER_PERSON', filterPersonResults);
+    yield takeEvery('SEARCH_BY_PERSON', searchByPerson);
+    yield takeEvery('FILTER_PERSON', filterPersonResults);
   }
 
   export default personSaga;

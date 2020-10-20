@@ -72,6 +72,7 @@ class FilmographyResults extends Component {
     console.log('Looking up cast of', this.props.store.castReducer);
     console.log('Looking up cast of', this.props);
     
+    // not logged in 
     if(Object.entries(this.props.store.user).length === 0) {
       return (
       <Container>
@@ -94,6 +95,7 @@ class FilmographyResults extends Component {
           </Box>
       </Container>
   );}
+  // logged in
   else {
       return (
           <Container>

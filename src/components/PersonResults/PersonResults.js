@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-import { Grid, Button, Typography } from '@material-ui/core';
+import { Grid, Button, Typography, Box } from '@material-ui/core';
 import InfoIcon from '@material-ui/icons/Info';
 import { withRouter } from 'react-router-dom';
 
@@ -24,6 +24,7 @@ class PersonResults extends Component {
   render() {
     console.log('people list', );
     return (
+      <Box minHeight="900px" maxHeight="900px" overflow="scroll">
       <Grid container direction="column" spacing={0}>
         {this.props.store.personReducer.map(person =>
         <Grid item xs={12} key={person.id}>
@@ -34,7 +35,7 @@ class PersonResults extends Component {
           </Grid>
           </Grid>
           )}
-      </Grid>
+      </Grid></Box>
     );
   }
 }
