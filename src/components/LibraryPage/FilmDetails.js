@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-import { Grid, Container, Card, CardActionArea, CardActions, CardContent, CardMedia, Button, Typography } from '@material-ui/core';
-import { cps } from 'redux-saga/effects';
+import { Grid, Typography } from '@material-ui/core';
+
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -30,7 +30,7 @@ function FilmDetails(props) {
         <Typography variant="h2">{props.store.detailsReducer.original_title}</Typography>
         <Grid container>
             <Grid item> 
-            <img src={`https://image.tmdb.org/t/p/w300${props.store.detailsReducer.poster_path}`} />
+            <img src={`https://image.tmdb.org/t/p/w300${props.store.detailsReducer.poster_path}`} alt={props.store.detailsReducer.original_title}/>
             </Grid>
             <Grid item>
             

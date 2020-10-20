@@ -6,10 +6,9 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import SearchPage from '../SearchPage/SearchPage';
 import SideBarLibrary from '../SideBarLibrary/SideBarLibrary';
-import AdditionalUserInfo from '../AdditionalUserInfo/AdditionalUserInfo';
 import BasicUserInfo from '../AdditionalUserInfo/BasicUserInfo';
 import Nav from '../Nav/Nav';
-import { Container, Box, Typography, Grid, Button } from '@material-ui/core';
+import { Container, Box, Typography, Grid } from '@material-ui/core';
 import LogOutButton from '../LogOutButton/LogOutButton';
 
 

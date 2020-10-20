@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { withRouter } from 'react-router';
 
-import { Container, Box, Typography, Grid, Button, Card } from '@material-ui/core';
+import { Container, Box, Typography, Grid, Card } from '@material-ui/core';
 import Nav from '../Nav/Nav';
 import LoginPage from '../LoginPage/LoginPage';
 import LogOutButton from '../LogOutButton/LogOutButton';

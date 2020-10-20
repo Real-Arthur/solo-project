@@ -1,10 +1,10 @@
-import { TextField, Card, Typography, Button } from '@material-ui/core';
-import SearchIcon from '@material-ui/icons/Search';
-import InputAdornment from '@material-ui/core/InputAdornment';
+import { Card, Typography } from '@material-ui/core';
+// import SearchIcon from '@material-ui/icons/Search';
+// import InputAdornment from '@material-ui/core/InputAdornment';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-import SideBarLibrary from '../SideBarLibrary/SideBarLibrary';
+// import SideBarLibrary from '../SideBarLibrary/SideBarLibrary';
 
 // Basic class component structure for React with default state
 // value setup. When making a new component be sure to replace

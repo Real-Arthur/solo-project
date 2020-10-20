@@ -1,10 +1,8 @@
-import { Typography } from '@material-ui/core';
-import React, { useState } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-import { Grid, Button } from "@material-ui/core";
-import Modal from '@material-ui/core/Modal';
+import { Grid } from "@material-ui/core";
 import SideBarLibraryDetails from './SideBarLibraryDetails';
 
 function SideBarLibrary(props) {

@@ -1,9 +1,8 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-import React, { useState } from 'react';
-import { Card, Grid, Typography, CardContent, Button } from "@material-ui/core";
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import React from 'react';
+import { Card, Grid, Typography, Button } from "@material-ui/core";
 import InfoIcon from '@material-ui/icons/Info';
 
 // Basic functional component structure for React with default state
@@ -30,7 +29,7 @@ console.log('props', props);
             {props.store.castReducer.map(cast =>
                 <Grid item xs={12} key={cast.cast_id}>
                    <Grid container direction="row" justify="space-between" alignItems="center">
-                    <img src={`https://image.tmdb.org/t/p/w300${cast.profile_path}`} />
+                    <img src={`https://image.tmdb.org/t/p/w300${cast.profile_path}`} alt={cast.name}/>
                     <Typography>{cast.name} as {cast.character}</Typography>
                     <Button onClick={() => props.findFilmography(cast.id, cast.name)}><InfoIcon /></Button> 
                     </Grid>

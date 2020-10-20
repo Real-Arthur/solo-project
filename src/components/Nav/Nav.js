@@ -1,10 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-import {Container, Typography} from '@material-ui/core'
+import { Container } from '@material-ui/core'
 import HomeButton from './HomeButton';
 
 const Nav = (props) => {

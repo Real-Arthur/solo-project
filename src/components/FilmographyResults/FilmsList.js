@@ -1,10 +1,9 @@
-import { Typography, Box, Grid, Button, Card } from '@material-ui/core';
+import { Typography, Grid, Button, Card } from '@material-ui/core';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import InfoIcon from '@material-ui/icons/Info';
-import AddCircleIcon from '@material-ui/icons/AddCircle';
 import ResultsVsLibrary from '../ResultsVsLibrary/ResultsVsLibrary';
 
 
@@ -63,7 +62,7 @@ class FilmsList extends Component {
         {this.props.store.filmography.map((film, i) =>
             <Grid item xs={12} key={i}>
                 <Grid container direction="row" justify="space-between" alignItems="center">
-                <img src={`https://image.tmdb.org/t/p/w300${film.poster_path}`} />
+                <img src={`https://image.tmdb.org/t/p/w300${film.poster_path}`} alt={film.original_title}/>
             <Typography>{film.character}</Typography>
             <Typography>in</Typography>
             <Typography>{film.original_title}</Typography>
@@ -92,7 +91,7 @@ class FilmsList extends Component {
                     {this.props.store.filmography.map(film =>
                         <Grid item xs={12}>
                             <Grid container direction="row" justify="space-between" alignItems="center">
-                            <img src={`https://image.tmdb.org/t/p/w300${film.poster_path}`} />
+                            <img src={`https://image.tmdb.org/t/p/w300${film.poster_path}`} alt={film.original_title}/>
                         <Typography>{film.character}</Typography>
                         <Typography>in</Typography>
                         <Typography>{film.original_title}</Typography>

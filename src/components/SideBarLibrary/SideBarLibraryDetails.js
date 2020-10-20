@@ -50,7 +50,7 @@ function SideBarLibraryDetails(props) {
       <div className={classes.paper} container direction="column">        
         <h2>{props.movieTitle}</h2>
 
-        <img src={`https://image.tmdb.org/t/p/w300${props.moviePosterPath}`} />
+        <img src={`https://image.tmdb.org/t/p/w300${props.moviePosterPath}`} alt={props.movieTitle}/>
         <p>{props.movieOverview}</p>
         <p>{props.movieReleaseDate}</p>
        
