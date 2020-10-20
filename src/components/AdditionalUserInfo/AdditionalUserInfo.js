@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-import { Container, Grid} from '@material-ui/core';
+import { Grid, Box } from '@material-ui/core';
 import CollectionVsFilmography from './CollectionVsFilmography';
 
 // Basic class component structure for React with default state
@@ -15,14 +15,19 @@ class AdditionalUserInfo extends Component {
 
   render() {
     return (
-      <Container fixed>
+      <Box minHeight="900px" maxHeight="900px" overflow="scroll">
         {this.props.store.collectionReducer.map((movie, i) =>
         <Grid container key={i}>
         <CollectionVsFilmography 
-        movie={movie}
+            key={i} 
+            movieTitle={movie.title}
+            movieId={movie.id}
+            movieOverview={movie.overview}
+            movieReleaseDate={movie.release_date}
+            moviePosterPath={movie.poster_path}
         /></Grid>
         )}
-      </Container>
+      </Box>
     );
   }
 }

@@ -66,8 +66,10 @@ class TitleResults extends Component {
     
     console.log('movies list', this.props.store.titleReducer);
     console.log('movies list', this.props.store.user.id);
+    // user not logged in
     if(Object.entries(this.props.store.user).length === 0) {
       return (
+        <Box minHeight="900px" maxHeight="900px" overflow="scroll">
         <Grid container direction="column" spacing={0}>
           {this.props.store.titleReducer.map(movie =>
           <Grid item xs={12} key={movie.id}>
@@ -79,12 +81,14 @@ class TitleResults extends Component {
             </Grid>
             )}
         </Grid>
+        </Box>
       );
     } 
+    // user is logged in
     else {
-
       return (
-        <Grid container direction="column" spacing={0}>
+        <Box minHeight="900px" maxHeight="900px" overflow="scroll">
+        <Grid container direction="column" spacing={0} maxHeight="900px" overflow="scroll">
           {this.props.store.titleReducer.map(movie =>
           <Grid item xs={12} key={movie.id}>
             <Grid container direction="row" justify="space-between" alignItems="center">
@@ -102,7 +106,7 @@ class TitleResults extends Component {
             </Grid>
             </Grid>
             )}
-        </Grid>
+        </Grid></Box>
       );
     }
 

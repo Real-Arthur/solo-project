@@ -21,7 +21,7 @@ function* searchByTitle(action) {
 
 
 function* titleSaga() {
-    yield takeLatest('SEARCH_BY_TITLE', searchByTitle);
+    yield takeEvery('SEARCH_BY_TITLE', searchByTitle);
   }
 
   export default titleSaga;

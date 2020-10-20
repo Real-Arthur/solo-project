@@ -21,7 +21,7 @@ function* searchForMoreDetails(action) {
 
 
 function* detailsSaga() {
-    yield takeLatest('FETCH_MOVIE_DETAILS', searchForMoreDetails);
+    yield takeEvery('FETCH_MOVIE_DETAILS', searchForMoreDetails);
   }
 
   export default detailsSaga;

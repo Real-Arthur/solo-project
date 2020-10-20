@@ -1,4 +1,4 @@
-import { Typography, Grid, Button, Card } from '@material-ui/core';
+import { Typography, Grid, Button, Box } from '@material-ui/core';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -57,7 +57,7 @@ class FilmsList extends Component {
   render(){
       if(this.props.loggedIn) {
   return (
-    <Card>
+    <Box minHeight="900px" maxHeight="900px" overflow="scroll">
         <Grid container direction="column" spacing={0}>
         {this.props.store.filmography.map((film, i) =>
             <Grid item xs={12} key={i}>
@@ -80,10 +80,10 @@ class FilmsList extends Component {
             </Grid>
             )}
             </Grid>
-    </Card>
+    </Box>
   );} else {
             return (
-                <Card>
+              <Box minHeight="900px" maxHeight="900px" overflow="scroll">
                 <Grid container>
 
                 </Grid>
@@ -102,7 +102,7 @@ class FilmsList extends Component {
                         </Grid>
                         )}
                         </Grid>
-                        </Card>
+                        </Box>
               );  
         }
     }

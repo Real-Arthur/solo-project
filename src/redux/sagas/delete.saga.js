@@ -18,7 +18,7 @@ function* deleteFromCollection(action) {
 
 
 function* deleteSaga() {
-    yield takeLatest('DELETE_FROM_COLLECTION', deleteFromCollection);
+    yield takeEvery('DELETE_FROM_COLLECTION', deleteFromCollection);
   }
 
   export default deleteSaga;
