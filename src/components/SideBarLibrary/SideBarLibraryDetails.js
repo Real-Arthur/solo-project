@@ -6,12 +6,8 @@ import { Grid, Button, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles'
 import Modal from '@material-ui/core/Modal';
 
-
-
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name TemplateFunction with the name for the new component.
-
+import { ThemeProvider } from '@material-ui/styles';
+import theme from '../Theme/Theme'
 
   
   const useStyles = makeStyles((theme) => ({
@@ -58,10 +54,11 @@ function SideBarLibraryDetails(props) {
   );
 
   return (
-    <Grid item key={props.movieId}>
+    <ThemeProvider theme={theme}>
+    <Grid item key={props.movieId} style={{backgroundColor: '#EFF7F6'}}>
         <Button key={props.movieId} onClick={handleOpen}>
         <Grid item xs={12}>
-        <Typography>{props.movieTitle}</Typography>
+        <Typography color="textSecondary">{props.movieTitle}</Typography>
         </Grid>
         
                 
@@ -74,7 +71,7 @@ function SideBarLibraryDetails(props) {
       >
           {sideBarDetails}
       </Modal>
-    </Grid>
+    </Grid></ThemeProvider>
   );
 }
 

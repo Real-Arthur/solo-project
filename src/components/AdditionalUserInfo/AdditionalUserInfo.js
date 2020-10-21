@@ -15,7 +15,7 @@ class AdditionalUserInfo extends Component {
 
   render() {
     return (
-      <Box minHeight="900px" maxHeight="900px" overflow="scroll">
+      <Box minHeight="660px" maxHeight="660px" overflow="scroll">
         <Typography>You've seen {this.props.store.currentReducer} in:</Typography>
         {this.props.store.collectionReducer.map((movie, i) =>
         <Grid container key={i}>

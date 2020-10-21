@@ -2,33 +2,31 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { withRouter } from 'react-router';
-
 import RegisterForm from '../RegisterForm/RegisterForm';
 import LoginForm from '../LoginForm/LoginForm';
-
 import SearchPage from '../SearchPage/SearchPage';
 import SideBarLibrary from '../SideBarLibrary/SideBarLibrary';
 import BasicUserInfo from '../AdditionalUserInfo/BasicUserInfo';
 import Nav from '../Nav/Nav';
-import { Container, Box, Typography, Grid } from '@material-ui/core';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import CollectionTopBar from '../AdditionalUserInfo/CollectionTopBar';
 
+import { Container, Box, Typography, Grid } from '@material-ui/core';
+import { ThemeProvider } from '@material-ui/styles';
+import theme from '../Theme/Theme';
 
-// Basic class component structure for React with default state
-// value setup. When making a new component be sure to replace
-// the component name TemplateClass with the name for the new
-// component.
+
 class HomePage extends Component {
  
   render() {
     // if user is not logged in
     if(Object.entries(this.props.store.user).length === 0) {
         return (
+          <ThemeProvider theme={theme}>
         <Container>
           <Grid container direction="row" justify="space-between" alignItems="center">
                 <Grid item><Nav /></Grid>
-                <Grid item><Typography variant="h1">CAST WATCH</Typography></Grid>
+                <Grid item><Typography variant="h1" color="primary">CAST WATCH</Typography></Grid>
           <Grid item><Typography>{       }</Typography></Grid>
                 </Grid>
           <Box display="flex" flexDirection="row" flexWrap="nowrap">       
@@ -44,16 +42,17 @@ class HomePage extends Component {
             <SideBarLibrary />
             </Box>
             </Box>
-        </Container>
+        </Container></ThemeProvider>
     );}
     // User is logged in
     else {
         return (
-            <Container>
+          <ThemeProvider theme={theme}>
+            <Container style={{ padding: '0px'}}>
                 <Grid container direction="row" justify="space-between" alignItems="center">
                 <Grid item><Nav /></Grid>
                 {/* <Grid item ><Button onClick={this.reset}>Reset Search</Button></Grid> */}
-                <Grid item><Typography variant="h1">CAST WATCH</Typography></Grid>
+                <Grid item><Typography variant="h1" color="primary">CAST WATCH</Typography></Grid>
                 
                 <Grid item><LogOutButton /></Grid>
                 </Grid>
@@ -69,7 +68,7 @@ class HomePage extends Component {
                 <SideBarLibrary />
                 </Box>
                 </Box>
-            </Container>
+            </Container></ThemeProvider>
                 );
             }
 

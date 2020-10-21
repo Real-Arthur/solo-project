@@ -42,7 +42,7 @@ render(){
   console.log('state', this.state);
   
   return (
-      <Box maxHeight="900px" overflow="scroll">
+      <Box maxHeight='700px' overflow="scroll">
          <Card>
         <TextField 
         fullWidth

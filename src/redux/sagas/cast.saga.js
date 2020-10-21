@@ -1,4 +1,4 @@
-import { put, takeLatest, takeEvery } from 'redux-saga/effects';
+import { put, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
 
 function* findMovieCast(action) {
@@ -15,8 +15,21 @@ function* findMovieCast(action) {
     })
     console.log('cast res data', response.data);
     yield put({
-        type: 'SET_CAST',
+        type: 'FILTER_CAST',
         payload: response.data
+    })
+}
+
+function* filterMovieCast(action) {
+    console.log('Filter Cast results', action.payload);
+    let cast = action.payload;
+    let filteredCast = cast.filter(function(person){
+        return person.profile_path !== null
+    })
+    console.log('Filtered nulls', filteredCast);
+    yield put({
+        type: 'SET_CAST',
+        payload: filteredCast
     })
 }
 
@@ -27,6 +40,7 @@ function* findMovieCast(action) {
 
 function* castSaga() {
     yield takeEvery('FETCH_CAST', findMovieCast);
+    yield takeEvery('FILTER_CAST', filterMovieCast);
   }
 
   export default castSaga;

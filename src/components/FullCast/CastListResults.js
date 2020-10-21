@@ -2,8 +2,10 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import React from 'react';
-import { Card, Grid, Typography, Button, Paper } from "@material-ui/core";
+import { Card, Grid, Typography, Button, Paper, Box } from "@material-ui/core";
 import InfoIcon from '@material-ui/icons/Info';
+import { ThemeProvider } from '@material-ui/styles';
+import theme from '../Theme/Theme';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -15,7 +17,8 @@ console.log('props', props);
 
   
   return (
-    <Card>
+    <ThemeProvider theme={theme}>
+    <Card style={{backgroundColor: '#EFF7F6'}}>
         <Grid container justify="space-between" >
             <Grid container spacing={0} justify="center">
             <Grid item>
@@ -28,7 +31,7 @@ console.log('props', props);
             {/* <Button><ArrowBackIcon /></Button> */}
             </Grid>
             </Grid>
-            
+        <Box minHeight="620px" maxHeight="620px" overflow="scroll">  
         <Grid container direction="column" spacing={0}>
             {props.store.castReducer.map(cast =>
                 <Grid item xs={12} key={cast.cast_id}>
@@ -40,8 +43,8 @@ console.log('props', props);
                     </Grid>
                     
                 )}
-        </Grid>
-    </Card>
+        </Grid></Box>
+    </Card></ThemeProvider>
   );
 }
 

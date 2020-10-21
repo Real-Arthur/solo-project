@@ -117,7 +117,7 @@ class FilmographyResults extends Component {
                   <Grid container justify="center">
                 <Grid item>
                   <Paper elevation={3} variant="outlined">
-                    <Typography variant="h5">{this.props.store.currentReducer} Films
+                    <Typography variant="h5">{this.props.store.currentReducer}'s {this.props.store.filmography.length} Films
                     </Typography>
                   </Paper>
                   </Grid></Grid>

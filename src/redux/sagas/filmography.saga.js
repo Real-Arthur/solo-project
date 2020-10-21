@@ -1,4 +1,4 @@
-import { put, takeLatest, takeEvery } from 'redux-saga/effects';
+import { put, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
 
 
@@ -30,6 +30,7 @@ function* filterFilmography(action) {
             && film.character !== "Herself - Host"
             && film.character !== "Self"
             && film.character !== ""
+            && film.poster_path !== null
     }
     )
     console.log('Filtered Out Self', noSelf);
