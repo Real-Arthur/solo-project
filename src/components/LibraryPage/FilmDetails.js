@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-import { Grid, Typography } from '@material-ui/core';
+import { Grid, Typography, Card, CardContent, Box, ListItem } from '@material-ui/core';
 
 
 // Basic functional component structure for React with default state
@@ -14,43 +14,39 @@ function FilmDetails(props) {
   if(props.store.detailsReducer.length === 0) {
       return (
           <Grid width="100%">
-          <Grid container >
-              <Grid item>
+          <Card >    
                 <Typography variant="h5">
               {`You have seen ${props.store.collectionReducer.length} movies!`}
               Click a Movie for Details
               </Typography>
-              </Grid>
-              </Grid>
+              </Card>
               </Grid>
       )
   } else {
   return (
-    <Grid width="100%">
-        <Typography variant="h2">{props.store.detailsReducer.original_title}</Typography>
-        <Grid container>
-            <Grid item> 
+    <Box width="100%">
+        <Card>
+        <CardContent>
+        <Typography variant="h5">{props.store.detailsReducer.original_title}</Typography>
+        </CardContent>
+        <hr></hr>
+        <CardContent>
             <img src={`https://image.tmdb.org/t/p/w300${props.store.detailsReducer.poster_path}`} alt={props.store.detailsReducer.original_title}/>
-            </Grid>
-            <Grid item>
-            
-                {props.store.detailsReducer.genres.map(genre =>
-                <Typography>{genre.name}</Typography>
+                        
+            {props.store.detailsReducer.genres.map(genre =>
+                <ListItem><Typography variant="p">{genre.name}</Typography></ListItem>
             )}
-            
-            </Grid>
-            <Typography>{props.store.detailsReducer.overview}</Typography>
-            <Grid item>
-                <Typography>
+            <Typography variant="p">{props.store.detailsReducer.overview}</Typography>
+                <hr></hr>
+                <Typography variant="p">
                     Produced By:
                     {props.store.detailsReducer.production_companies.map(company =>
                     <Typography>{company.name}</Typography>
                     )}
-                </Typography>
-            </Grid>
-        </Grid>
-      
-    </Grid>
+                </Typography>  
+        </CardContent>
+      </Card>
+    </Box>
   );
   }
 }

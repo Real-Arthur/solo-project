@@ -11,7 +11,6 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 import RegisterForm from '../RegisterForm/RegisterForm';
 import FilmDetails from './FilmDetails';
 import SearchAndLibrary from './SearchAndLibrary';
-import SideBarSearch from './SideBarSearch';
 
 // Basic class component structure for React with default state
 // value setup. When making a new component be sure to replace

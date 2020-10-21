@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-import { Typography, Grid, Button } from "@material-ui/core";
+import { Typography, Grid, Button, ListItem } from "@material-ui/core";
 import { makeStyles } from '@material-ui/styles'
 import Modal from '@material-ui/core/Modal';
 
@@ -50,7 +50,7 @@ function CollectionVsFilmography(props) {
 
   if(overlap !== -1) {
   return (
-    <Grid item key={props.movieId}>
+    <ListItem key={props.movieId}>
       <Button key={props.movieId} onClick={handleOpen}>
       <Typography>{props.movieTitle}</Typography>
       </Button>
@@ -62,7 +62,7 @@ function CollectionVsFilmography(props) {
       >
         {matchBarDetails}
       </Modal>
-    </Grid>
+    </ListItem>
   );
   } else {
       return(

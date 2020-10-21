@@ -1,4 +1,4 @@
-import { put, takeLatest, takeEvery } from 'redux-saga/effects';
+import { put, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
 
 function* searchByTitle(action) {
@@ -13,8 +13,21 @@ function* searchByTitle(action) {
     })
     console.log('response data', response.data);
     yield put({
-        type: 'SET_SEARCHED_TITLE',
+        type: 'FILTER_TITLE',
         payload: response.data
+    })
+}
+
+function* filterTitle(action) {
+    console.log('Filter title results', action.payload);
+    let results = action.payload;
+    /// Filter null title results
+    let noNulls = results.filter(function(film){
+        return film.backdrop_path !== null
+    })
+    yield put({
+        type: 'SET_SEARCHED_TITLE',
+        payload: noNulls
     })
 }
 
@@ -22,6 +35,7 @@ function* searchByTitle(action) {
 
 function* titleSaga() {
     yield takeEvery('SEARCH_BY_TITLE', searchByTitle);
+    yield takeEvery('FILTER_TITLE', filterTitle);
   }
 
   export default titleSaga;

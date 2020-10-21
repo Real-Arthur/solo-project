@@ -3,14 +3,16 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 
 import mapStoreToProps from '../../redux/mapStoreToProps';
+import TitleResults from '../SearchResults/TitleResults';
+import PersonResults from '../PersonResults/PersonResults';
+
+import { ThemeProvider } from '@material-ui/styles';
 import { TextField, Card, Button } from '@material-ui/core';
 import WcIcon from '@material-ui/icons/Wc';
 import SearchIcon from '@material-ui/icons/Search';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import TheatersIcon from '@material-ui/icons/Theaters';
-import TitleResults from '../SearchResults/TitleResults';
-import PersonResults from '../PersonResults/PersonResults';
-
+import theme from '../Theme/Theme';
 
 
 class SearchPage extends Component {
@@ -87,6 +89,7 @@ class SearchPage extends Component {
     
     if(this.state.isMovie){
     return (
+      <ThemeProvider theme={theme}>
       <Card>
         <TextField 
         fullWidth 
@@ -102,7 +105,7 @@ class SearchPage extends Component {
             <InputAdornment position="end"
             onClick={()=> this.toggleSearch()}>
               <TheatersIcon />
-              <Button variant="outlined">Search By Name?</Button>
+              <Button variant="outlined" color="secondary">Search By Name?</Button>
             </InputAdornment>
           )
         }}
@@ -110,10 +113,11 @@ class SearchPage extends Component {
         />
         <TitleResults 
         findCast={this.findCast} />
-      </Card>
+      </Card></ThemeProvider>
     );
       } else {
         return(
+          <ThemeProvider theme={theme}>
           <Card>
         <TextField 
         fullWidth 
@@ -129,14 +133,14 @@ class SearchPage extends Component {
             <InputAdornment position="end"
             onClick={() => this.toggleSearch()}>
               <WcIcon />
-              <Button variant="outlined">Search By Title?</Button>
+              <Button variant="outlined" color="secondary">Search By Title?</Button>
             </InputAdornment>
           )
         }}
         onChange={(event) => this.searchPerson(event)}
         />
         <PersonResults />
-      </Card>
+      </Card></ThemeProvider>
         )
       }
   }

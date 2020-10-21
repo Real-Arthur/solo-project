@@ -57,7 +57,7 @@ class FilmsList extends Component {
   render(){
       if(this.props.loggedIn) {
   return (
-    <Box minHeight="900px" maxHeight="900px" overflow="scroll">
+    <Box minHeight="620px" maxHeight="620px" overflow="scroll">
         <Grid container direction="column" spacing={0}>
         {this.props.store.filmography.map((film, i) =>
             <Grid item xs={12} key={i}>
@@ -83,7 +83,7 @@ class FilmsList extends Component {
     </Box>
   );} else {
             return (
-              <Box minHeight="900px" maxHeight="900px" overflow="scroll">
+              <Box minHeight="700px" maxHeight="700px" overflow="scroll">
                 <Grid container>
 
                 </Grid>

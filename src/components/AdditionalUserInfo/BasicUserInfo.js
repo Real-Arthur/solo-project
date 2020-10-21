@@ -15,7 +15,7 @@ class BasicUserInfo extends Component {
   render() {
     return (
       <Container fixed>
-        
+        <></>
       </Container>
     );
   }
