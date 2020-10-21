@@ -1,4 +1,4 @@
-import { put, takeEvery } from 'redux-saga/effects';
+import { put, takeEvery, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
 function* fetchCollection(action) {
@@ -41,8 +41,8 @@ function* addToCollection(action) {
 
 
 function* collectionSaga() {
-    yield takeEvery('FETCH_COLLECTION', fetchCollection);
-    yield takeEvery('ADD_TO_COLLECTION', addToCollection);
+    yield takeLatest('FETCH_COLLECTION', fetchCollection);
+    yield takeLatest('ADD_TO_COLLECTION', addToCollection);
   }
 
   export default collectionSaga;

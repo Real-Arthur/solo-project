@@ -47,6 +47,8 @@ router.post('/add', (req, res) => {
       console.log('Added to collection', response);
       res.sendStatus(200)
   }).catch(error => {
+    console.log('error in collection post', error);
+    
       res.sendStatus(500)
   }
   )
