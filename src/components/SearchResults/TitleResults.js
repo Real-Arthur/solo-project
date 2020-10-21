@@ -6,13 +6,23 @@ import InfoIcon from '@material-ui/icons/Info';
 import ResultsVsLibrary from '../ResultsVsLibrary/ResultsVsLibrary';
 
 class TitleResults extends Component {
-
+  state = {
+    matches: {}
+  }
+  // Takes data from ResultsVCollection child to run
   addToLibraryAndCollection = (idNumber, movie) => {
     console.log('id number and movie', idNumber.id, movie);
     this.addToLibrary(movie);
     this.addToCollection(movie, idNumber.id);
   }
-
+  ////  Work In Progress
+  addToMatches = (value) => {
+    console.log('doing stuff', value)
+    this.setState({
+      matches: value
+    })
+  }
+  // Takes full movie object from child to dispatch to library saga
   addToLibrary = (movie) => {
     console.log('things to send', movie);
     this.props.dispatch({
@@ -26,7 +36,7 @@ class TitleResults extends Component {
       }
     })
   }
-
+  // Takes ids from user and movie to dispatch to collection saga
   addToCollection = (movieId, idNumber) => {
     console.log('value of movie', movieId.id);
     console.log('value of id', idNumber);
@@ -39,7 +49,7 @@ class TitleResults extends Component {
       }
     })
   }
-
+  // Takes full user and movie object to dispatch delete
   deleteFromCollection = (user, movie) => {
     console.log('This is user and movie', user.id, movie.id);
     this.props.dispatch({
@@ -74,7 +84,7 @@ class TitleResults extends Component {
         </Box>
       );
     } 
-    // user is logged in
+    // User is logged in
     else {
       return (
         <Box minHeight="900px" maxHeight="900px" overflow="scroll">
@@ -90,6 +100,7 @@ class TitleResults extends Component {
             movie={movie}
             addToLibraryAndCollection={this.addToLibraryAndCollection}
             deleteFromCollection={this.deleteFromCollection}
+            addToMatches={this.addToMatches}
             />
             </Box>
             </Grid>
