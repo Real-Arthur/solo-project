@@ -69,7 +69,7 @@ class TitleResults extends Component {
     // user not logged in
     if(Object.entries(this.props.store.user).length === 0) {
       return (
-        <Box>
+        <Box style={{backgroundColor: '#EFF7F6'}}>
         <Grid container direction="column" spacing={0}>
           {this.props.store.titleReducer.map(movie =>
           <Grid item xs={12} key={movie.id}>
@@ -87,7 +87,7 @@ class TitleResults extends Component {
     // User is logged in
     else {
       return (
-        <Box minHeight="650px" maxHeight="650px" overflow="scroll">
+        <Box minHeight="680px" maxHeight="680px" overflow="scroll" style={{backgroundColor: '#EFF7F6'}}>
         <Grid container direction="column" spacing={0} maxheight="900px" overflow="scroll">
           {this.props.store.titleReducer.map(movie =>
           <Grid item xs={12} key={movie.id}>

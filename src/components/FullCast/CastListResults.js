@@ -7,15 +7,9 @@ import InfoIcon from '@material-ui/icons/Info';
 import { ThemeProvider } from '@material-ui/styles';
 import theme from '../Theme/Theme';
 
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name TemplateFunction with the name for the new component.
 function CastListResults(props) {
-  // Using hooks we're creating local state for a "heading" variable with
-  // a default value of 'Functional Component'
 console.log('props', props);
 
-  
   return (
     <ThemeProvider theme={theme}>
     <Card style={{backgroundColor: '#EFF7F6'}}>
@@ -28,10 +22,9 @@ console.log('props', props);
             </Grid>
             </Grid>
             <Grid container spacing={0}>
-            {/* <Button><ArrowBackIcon /></Button> */}
             </Grid>
             </Grid>
-        <Box minHeight="620px" maxHeight="620px" overflow="scroll">  
+        <Box minHeight="680px" maxHeight="680px" overflow="scroll">  
         <Grid container direction="column" spacing={0}>
             {props.store.castReducer.map(cast =>
                 <Grid item xs={12} key={cast.cast_id}>
@@ -41,7 +34,6 @@ console.log('props', props);
                     <Button onClick={() => props.findFilmography(cast.id, cast.name)}><InfoIcon /></Button> 
                     </Grid>
                     </Grid>
-                    
                 )}
         </Grid></Box>
     </Card></ThemeProvider>

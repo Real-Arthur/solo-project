@@ -11,17 +11,13 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 import RegisterForm from '../RegisterForm/RegisterForm';
 import FilmDetails from './FilmDetails';
 import SearchAndLibrary from './SearchAndLibrary';
+import AdditionalUserInfo from '../AdditionalUserInfo/AdditionalUserInfo';
 
-// Basic class component structure for React with default state
-// value setup. When making a new component be sure to replace
-// the component name TemplateClass with the name for the new
-// component.
+
 class LibraryPage extends Component {
-  state = {
-    heading: 'Class Component',
-  };
 
   render() {
+    /// user is not logged in
     if(Object.entries(this.props.store.user).length === 0) {
       return (
       <Container>
@@ -31,21 +27,26 @@ class LibraryPage extends Component {
         <Grid item><Typography>{       }</Typography></Grid>
               </Grid>
         <Box display="flex" flexDirection="row" flexWrap="nowrap">       
-        <Box order={1} width="10%">           
-          <LoginForm/>
-          <RegisterForm />
+        <Box order={1} flexShrink={2}>
+          <AdditionalUserInfo />           
         </Box>         
-          <Box order={2} width="80%">
-            {/* <SearchPage /> */}
+          <Box order={2} width="100%">
             <Card><Typography>Log In For Library</Typography></Card>
           </Box>          
-          <Box order={3} width="10%">
+          <Box order={3} flexShrink={3}>
           <Typography>Library</Typography>
-          <Grid><Typography>Log In for More Details</Typography></Grid>
+          <Grid>
+            <Typography>
+              Log In for More Details
+            </Typography>
+          <LoginForm/>
+          <RegisterForm />
+          </Grid>
           </Box>
           </Box>
       </Container>
   );}
+  /// user is logged in
   else {
       return (
           <Container>
@@ -55,10 +56,7 @@ class LibraryPage extends Component {
               
               <Grid item><LogOutButton /></Grid>
               </Grid>
-              <Box display="flex" flexDirection="row" flexWrap="nowrap">       
-              {/* <Box order={1} flexShrink={1}>           
-              <SideBarSearch />
-              </Box>          */}
+              <Box display="flex" flexDirection="row" flexWrap="nowrap">
               <Box order={2} width="100%">
                   <SearchAndLibrary />
               </Box>          

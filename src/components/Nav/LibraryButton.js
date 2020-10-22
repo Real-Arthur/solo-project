@@ -26,10 +26,13 @@ class HomeButton extends Component {
         type: 'RESET_MATCHES'
       })
       this.props.dispatch({
-          type: 'RESET_SEARCHED_TITLE'
+        type: 'RESET_SEARCHED_TITLE'
       })
       this.props.dispatch({
-          type: 'RESET_SEARCHED_PERSON'
+        type: 'RESET_SEARCHED_PERSON'
+      })
+      this.props.dispatch({
+        type: 'RESET_CURRENT'
       })
       this.props.history.push('/library')
   }

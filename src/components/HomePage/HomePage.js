@@ -31,48 +31,47 @@ class HomePage extends Component {
                 </Grid>
           <Box display="flex" flexDirection="row" flexWrap="nowrap">       
           <Box order={1} flexShrink={2}>           
-            <LoginForm />
-            <RegisterForm />
+            <BasicUserInfo />
           </Box>         
             <Box order={2} width="100%">
               <SearchPage />
             </Box>          
             <Box order={3} flexShrink={3}>
             <Typography>Log In For Collection</Typography>
-            <SideBarLibrary />
+            <LoginForm />
+            <RegisterForm />
             </Box>
             </Box>
-        </Container></ThemeProvider>
+        </Container>
+        </ThemeProvider>
     );}
     // User is logged in
     else {
-        return (
-          <ThemeProvider theme={theme}>
-            <Container style={{ padding: '0px'}}>
-                <Grid container direction="row" justify="space-between" alignItems="center">
-                <Grid item><Nav /></Grid>
+      return (
+        <ThemeProvider theme={theme}>
+          <Container style={{ padding: '0px'}}>
+            <Grid container direction="row" justify="space-between" alignItems="center">
+              <Grid item><Nav /></Grid>
                 {/* <Grid item ><Button onClick={this.reset}>Reset Search</Button></Grid> */}
-                <Grid item><Typography variant="h1" color="primary">CAST WATCH</Typography></Grid>
-                
-                <Grid item><LogOutButton /></Grid>
-                </Grid>
-                <Box display="flex" flexDirection="row" flexWrap="nowrap">       
-                <Box order={1} flexShrink={2}>           
+              <Grid item><Typography variant="h1" color="primary">CAST WATCH</Typography></Grid>
+              <Grid item><LogOutButton /></Grid>
+            </Grid>
+            <Box display="flex" flexDirection="row" flexWrap="nowrap">       
+              <Box order={1} flexShrink={2}>           
                 <BasicUserInfo />
-                </Box>         
-                <Box order={2} width="100%">
-                    <SearchPage />
-                </Box>          
-                <Box order={3} flexShrink={3}>
-                  <CollectionTopBar />
+              </Box>         
+              <Box order={2} width="100%">
+                  <SearchPage />
+              </Box>          
+              <Box order={3} flexShrink={3}>
+                <CollectionTopBar />
                 <SideBarLibrary />
-                </Box>
-                </Box>
-            </Container></ThemeProvider>
-                );
-            }
-
-
+              </Box>
+            </Box>
+          </Container>
+        </ThemeProvider>
+      );
+    }
   }
 }
 

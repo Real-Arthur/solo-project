@@ -77,11 +77,18 @@ class FilmographyResults extends Component {
     if(Object.entries(this.props.store.user).length === 0) {
       return (
       <Container>
-        <Box><Nav /></Box>
+        <Grid container direction="row" justify="space-between" alignItems="center">
+          <Grid item >
+        <Grid item><Nav /></Grid>
+        <Grid item>  </Grid>
+        </Grid>
+        <Grid item>
+            <Typography variant="h1">CAST WATCH</Typography>
+            </Grid>
+            </Grid>
         <Box display="flex" flexDirection="row" flexWrap="nowrap">       
         <Box order={1} flexShrink={2}>           
-          <LoginPage />
-          <RegisterPage />
+         
         </Box>
           <Box order={2} width="100%">         
           <FilmsList 
@@ -90,7 +97,11 @@ class FilmographyResults extends Component {
           />
           </Box>   
           <Box order={3} flexShrink={2}>
-          <Typography>Log In For Collection</Typography>
+          <Typography>
+            Log In For Collection
+          </Typography>
+          <LoginPage />
+          <RegisterPage />
           <SideBarLibrary />
           </Box>
           </Box>
@@ -106,7 +117,7 @@ class FilmographyResults extends Component {
                   <Typography variant="h1">CAST WATCH</Typography>
                 </Grid>
                 <Grid item>
-                <LogOutButton className="log-in"/>
+                <LogOutButton />
                 </Grid>
                 </Grid>
               <Box display="flex" flexDirection="row" flexWrap="nowrap">       

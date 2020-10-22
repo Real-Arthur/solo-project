@@ -1,4 +1,4 @@
-import { Box, Grid, InputLabel, TextField, Button } from '@material-ui/core';
+import { Box, Grid, InputLabel, TextField, Button, Typography } from '@material-ui/core';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
@@ -29,10 +29,10 @@ class RegisterForm extends Component {
 
   render() {
     return (
-      <Box>
-        <Grid container>
+      <Box style={{backgroundColor: '#EFF7F6'}}>
+        <Grid container direction="column" alignItems="flex-start">
       {/* <form className="formPanel" onSubmit={this.registerUser}> */}
-        <h2>Register User</h2>
+        <Typography variant="h6">Register User</Typography>
         {this.props.store.errors.registrationMessage && (
           <h3 className="alert" role="alert">
             {this.props.store.errors.registrationMessage}

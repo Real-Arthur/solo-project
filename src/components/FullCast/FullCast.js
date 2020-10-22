@@ -52,12 +52,10 @@ class FullCast extends Component {
         <Grid container direction="row" justify="space-between" alignItems="center">
         <Grid item><Nav /></Grid>
         <Grid item><Typography variant="h1" color="primary">CAST WATCH</Typography></Grid>
-          <Grid item><Typography>{       }</Typography></Grid>
           </Grid>
           <Box display="flex" flexDirection="row" flexWrap="nowrap">       
-          <Box order={1} flexShrink={2}>           
-            <LoginForm />
-            <RegisterForm />
+          <Box order={1} flexShrink={2}>
+            <BasicUserInfo />
           </Box>    
         </Box>         
           <Box order={2} width="100%">
@@ -65,9 +63,9 @@ class FullCast extends Component {
             findFilmography={this.findFilmography}
             />
           </Box>          
-          <Box order={3} flexShrink={3}>
-          <CollectionTopBar />
-          <SideBarLibrary />
+          <Box order={3} flexShrink={2}>
+            <LoginForm />
+            <RegisterForm />
           </Box>
       </Container></ThemeProvider>
   );}

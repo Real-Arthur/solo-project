@@ -9,7 +9,7 @@ function SideBarLibrary(props) {
   
 
   return (
-    <Box minHeight="610px" maxHeight="610px" overflow="scroll">
+    <Box minHeight="680px" maxHeight="680px" overflow="scroll">
     <Grid container direction="column" spacing={0}>
         {props.store.collectionReducer.map((movie, i) =>
         <SideBarLibraryDetails

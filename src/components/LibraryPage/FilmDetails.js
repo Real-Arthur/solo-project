@@ -24,7 +24,7 @@ function FilmDetails(props) {
       )
   } else {
   return (
-    <Box width="100%">
+    <Box width="100%" maxHeight="700px" overflow="scroll">
         <Card>
         <CardContent>
         <Typography variant="h5">{props.store.detailsReducer.original_title}</Typography>
@@ -34,14 +34,14 @@ function FilmDetails(props) {
             <img src={`https://image.tmdb.org/t/p/w300${props.store.detailsReducer.poster_path}`} alt={props.store.detailsReducer.original_title}/>
                         
             {props.store.detailsReducer.genres.map(genre =>
-                <ListItem><Typography variant="p">{genre.name}</Typography></ListItem>
+                <ListItem><Typography variant="caption">{genre.name}</Typography></ListItem>
             )}
-            <Typography variant="p">{props.store.detailsReducer.overview}</Typography>
+            <Typography variant="caption">{props.store.detailsReducer.overview}</Typography>
                 <hr></hr>
-                <Typography variant="p">
+                <Typography variant="caption">
                     Produced By:
                     {props.store.detailsReducer.production_companies.map(company =>
-                    <Typography>{company.name}</Typography>
+                    <ListItem ><Typography variant="caption">{company.name}</Typography></ListItem>
                     )}
                 </Typography>  
         </CardContent>

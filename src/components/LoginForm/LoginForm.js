@@ -33,11 +33,11 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <Box>
+      <Box style={{backgroundColor: '#EFF7F6'}}>
       <Grid container direction="column" alignItems="flex-start">
       {/* <form className="formPanel" onSubmit={this.login}> */}
       <Grid item>
-        <Typography variant="h3">Login</Typography>
+        <Typography variant="h6">Login</Typography>
         {this.props.store.errors.loginMessage && (
           <h3 className="alert" role="alert">
             {this.props.store.errors.loginMessage}
@@ -73,8 +73,8 @@ class LoginForm extends Component {
           {/* <input className="btn" type="submit" name="submit" value="Log In" /> */}
         </Grid>
       {/* </form> */}
-      </Grid>
-      </Box>
+      </Grid></Box>
+      
     );
   }
 }
