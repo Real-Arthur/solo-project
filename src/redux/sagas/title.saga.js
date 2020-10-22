@@ -1,9 +1,9 @@
-import { put, takeEvery, takeLatest } from 'redux-saga/effects';
+import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
 function* searchByTitle(action) {
-    console.log('SEARCH TITLE SAGA', action.type);
-    console.log('SEARCH TITLE SAGA', action.payload);
+    // console.log('SEARCH TITLE SAGA', action.type);
+    // console.log('SEARCH TITLE SAGA', action.payload);
     let response = yield axios({
         method: 'GET',
         url: '/api/title',
@@ -11,7 +11,7 @@ function* searchByTitle(action) {
             title: action.payload
         }
     })
-    console.log('response data', response.data);
+    // console.log('response data', response.data);
     yield put({
         type: 'FILTER_TITLE',
         payload: response.data
@@ -19,7 +19,7 @@ function* searchByTitle(action) {
 }
 
 function* filterTitle(action) {
-    console.log('Filter title results', action.payload);
+    // console.log('Filter title results', action.payload);
     let results = action.payload;
     /// Filter null title results
     let noNulls = results.filter(function(film){
@@ -30,8 +30,6 @@ function* filterTitle(action) {
         payload: noNulls
     })
 }
-
-
 
 function* titleSaga() {
     yield takeLatest('SEARCH_BY_TITLE', searchByTitle);

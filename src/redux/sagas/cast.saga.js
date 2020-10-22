@@ -1,11 +1,10 @@
-import { put, takeEvery, takeLatest } from 'redux-saga/effects';
+import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
 function* findMovieCast(action) {
-    console.log('find cast payload', action.payload);
+    // console.log('find cast payload', action.payload);
     let movieId = action.payload;
-    console.log('movie id and typeof', movieId, typeof(movieId));
-    
+    // console.log('movie id and typeof', movieId, typeof(movieId));
     let response = yield axios({
         method: 'GET',
         url: '/api/cast',
@@ -13,7 +12,7 @@ function* findMovieCast(action) {
             id: movieId
         }
     })
-    console.log('cast res data', response.data);
+    // console.log('cast res data', response.data);
     yield put({
         type: 'FILTER_CAST',
         payload: response.data
@@ -21,12 +20,12 @@ function* findMovieCast(action) {
 }
 
 function* filterMovieCast(action) {
-    console.log('Filter Cast results', action.payload);
+    // console.log('Filter Cast results', action.payload);
     let cast = action.payload;
     let filteredCast = cast.filter(function(person){
         return person.profile_path !== null
     })
-    console.log('Filtered nulls', filteredCast);
+    // console.log('Filtered nulls', filteredCast);
     yield put({
         type: 'SET_CAST',
         payload: filteredCast

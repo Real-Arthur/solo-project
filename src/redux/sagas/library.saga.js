@@ -1,10 +1,8 @@
-import { takeEvery, takeLatest } from 'redux-saga/effects';
+import { takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
-
-
 function* addToLibrary(action) {
-    console.log('ADD TO LIBRARY SAGA', action.payload);
+    // console.log('ADD TO LIBRARY SAGA', action.payload);
     yield axios({
         method: 'POST',
         url: `/api/library/add`,
@@ -17,8 +15,6 @@ function* addToLibrary(action) {
         }
     })
 }
-
-
 
 function* librarySaga() {
     yield takeLatest('ADD_TO_LIBRARY', addToLibrary);

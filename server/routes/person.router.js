@@ -4,9 +4,6 @@ const router = express.Router();
 const axios = require('axios');
 require('dotenv').config();
 
-/**
- * GET route template
- */
 router.get('/', (req, res) => {
   console.log('req query person get', req.query.name);
     let personName = req.query.name;
@@ -30,10 +27,9 @@ router.get('/', (req, res) => {
   });
 
   router.get('/filmography', (req, res) => {
-    console.log('Filmography get route', req.query);
+    // console.log('Filmography get route', req.query);
     let filmographyToGet = parseInt(req.query.id);
-    console.log('person Id', typeof(filmographyToGet));
-    
+    // console.log('person Id', typeof(filmographyToGet));
     axios({
       method: 'GET',
       url: `https://api.themoviedb.org/3/person/${filmographyToGet}/movie_credits?`,
@@ -46,12 +42,5 @@ router.get('/', (req, res) => {
       res.send(response.data.cast)
     })
   })
-
-/**
- * POST route template
- */
-router.post('/', (req, res) => {
-  // POST route code here
-});
 
 module.exports = router;

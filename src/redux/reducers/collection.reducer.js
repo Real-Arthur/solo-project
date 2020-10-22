@@ -1,6 +1,6 @@
 const collectionReducer = (state = [], action) => {
-    console.log('action payload', action.payload);
-    console.log('action type', action.type);
+    // console.log('action payload', action.payload);
+    // console.log('action type', action.type);
     
     switch (action.type) {
       case 'CREATE_COLLECTION':

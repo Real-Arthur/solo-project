@@ -1,6 +1,6 @@
 const currentReducer = (state = [], action) => {
-    console.log('action payload', action.payload);
-    console.log('action type', action.type);
+    // console.log('action payload', action.payload);
+    // console.log('action type', action.type);
     
     switch (action.type) {
       case 'SET_CURRENT':

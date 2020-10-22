@@ -1,9 +1,9 @@
-import { put, takeEvery, takeLatest } from 'redux-saga/effects';
+import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
 function* searchByPerson(action) {
-    console.log('SEARCH PERSON SAGA', action.type);
-    console.log('SEARCH PERSON SAGA', action.payload);
+    // console.log('SEARCH PERSON SAGA', action.type);
+    // console.log('SEARCH PERSON SAGA', action.payload);
     let response = yield axios({
         method: 'GET',
         url: '/api/person',
@@ -11,7 +11,7 @@ function* searchByPerson(action) {
             name: action.payload
         }
     })
-    console.log('response data', response.data);
+    // console.log('response data', response.data);
     yield put({
         type: 'FILTER_PERSON',
         payload: response.data
@@ -19,14 +19,14 @@ function* searchByPerson(action) {
 }
 
 function* filterPersonResults(action) {
-    console.log('FILTER', action.type);
-    console.log('FILTER', action.payload);
+    // console.log('FILTER', action.type);
+    // console.log('FILTER', action.payload);
     let people = action.payload;
     let justActors = people.filter(function(person){
         return person.known_for_department === 'Acting'
         && person.profile_path !== null
     })
-    console.log('newPeople', justActors);
+    // console.log('newPeople', justActors);
     yield put({
         type: 'SET_SEARCHED_PERSON',
         payload: justActors

@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { Container, Box, Typography, Grid, Paper } from '@material-ui/core';
-import LoginPage from '../LoginPage/LoginPage';
-import RegisterPage from '../RegisterPage/RegisterPage';
+import LoginForm from '../LoginForm/LoginForm';
+import RegisterForm from '../RegisterForm/RegisterForm';
 import AdditionalUserInfo from '../AdditionalUserInfo/AdditionalUserInfo';
 import Nav from '../Nav/Nav';
 import SideBarLibrary from '../SideBarLibrary/SideBarLibrary';
@@ -103,8 +103,8 @@ class FilmographyResults extends Component {
               <Typography>
                 Log In For Collection
               </Typography>
-              <LoginPage />
-              <RegisterPage />
+              <LoginForm />
+              <RegisterForm />
               <SideBarLibrary />
             </Box>
             </Box>

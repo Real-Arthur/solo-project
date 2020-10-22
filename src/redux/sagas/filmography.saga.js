@@ -1,9 +1,8 @@
-import { put, takeEvery, takeLatest } from 'redux-saga/effects';
+import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
-
 function* findFilmography(action) {
-    console.log('FIND FILMOGRAPHY Payload', action.payload);
+    // console.log('FIND FILMOGRAPHY Payload', action.payload);
     let filmographyToSearch = action.payload.id;
     let response = yield axios({
         method: 'GET',
@@ -12,7 +11,7 @@ function* findFilmography(action) {
             id: filmographyToSearch
         }
     })
-    console.log('Res data', response.data);
+    // console.log('Res data', response.data);
     yield put({
         type: 'FILTER_FILMOGRAPHY',
         payload: response.data
@@ -20,7 +19,7 @@ function* findFilmography(action) {
 }
 
 function* filterFilmography(action) {
-    console.log('FILTER FILMOGRAPHY payload', action.payload);
+    // console.log('FILTER FILMOGRAPHY payload', action.payload);
     let filmography = action.payload;
     /// Filters out all results where actor/actress plays his/herself
     let noSelf = filmography.filter(function(film){
@@ -31,9 +30,8 @@ function* filterFilmography(action) {
             && film.character !== "Self"
             && film.character !== ""
             && film.poster_path !== null
-    }
-    )
-    console.log('Filtered Out Self', noSelf);
+    })
+    // console.log('Filtered Out Self', noSelf);
     yield put({
         type: 'SET_FILMOGRAPHY',
         payload: noSelf

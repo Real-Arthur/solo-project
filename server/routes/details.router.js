@@ -3,11 +3,7 @@ const router = express.Router();
 const axios = require('axios');
 require('dotenv').config();
 
-/**
- * GET route template
- */
 router.get('/', (req, res) => {
-  // GET route code here
   console.log('Details req', req.query.movieId);
   let movieId = req.query.movieId;
   axios({
@@ -25,13 +21,6 @@ router.get('/', (req, res) => {
     console.log('error', error);
     res.sendStatus(500)
   })
-});
-
-/**
- * POST route template
- */
-router.post('/', (req, res) => {
-  // POST route code here
 });
 
 module.exports = router;
