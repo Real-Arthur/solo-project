@@ -5,7 +5,7 @@ import { Button } from "@material-ui/core"
 import HomeIcon from '@material-ui/icons/Home';
 
 class HomeButton extends Component {
-
+  // Clears a bunch of reducers
   home = () => {
       this.props.dispatch({
         type: 'RESET_CAST'

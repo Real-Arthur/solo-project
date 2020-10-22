@@ -3,15 +3,8 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { Container } from '@material-ui/core';
 
-// Basic class component structure for React with default state
-// value setup. When making a new component be sure to replace
-// the component name TemplateClass with the name for the new
-// component.
+// Spacer for formatting. Might add to later
 class BasicUserInfo extends Component {
-  state = {
-    heading: 'Class Component',
-  };
-
   render() {
     return (
       <Container fixed>

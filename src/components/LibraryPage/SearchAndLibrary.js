@@ -12,28 +12,25 @@ class SearchAndLibrary extends Component {
       searchQuery: '',
       movieTitles: this.props.store.collectionReducer
     }
-
+    // Allows user to search their personal library
     searchLibrary = (event) => {
-      console.log('event value', event.target.value);
-      console.log('', this.state.movieTitles);
-      
+      // console.log('event value', event.target.value);
+      // console.log('', this.state.movieTitles);
       let newSearch = event.target.value;
-  
       let searchedTitles = this.props.store.collectionReducer.filter(movie =>
         movie.title.includes(newSearch)
-        )
-  
+      )
       this.setState({
         searchQuery: newSearch,
         movieTitles: searchedTitles
       })
     }
-
+    // Finds movie details and cast list
     findDetailsAndCast = (movieToFindId) => {
       this.findFilmDetails(movieToFindId);
       this.findCast(movieToFindId);
     }
-
+    // Finds extra details on selected movie
     findFilmDetails = (movieToFindId) => {
         console.log('Movie Details Id', movieToFindId);
         this.props.dispatch({
@@ -41,7 +38,7 @@ class SearchAndLibrary extends Component {
             payload: movieToFindId
         })
     }
-
+    // Finds cast of selected movie
     findCast = (movieToFindId) => {
       this.props.dispatch({
         type: "FETCH_CAST",
@@ -50,11 +47,10 @@ class SearchAndLibrary extends Component {
     }
 
 render(){
-  console.log('state', this.state);
-  
+  // console.log('state', this.state);
   return (
-      <Box maxHeight='700px' overflow="scroll">
-         <Card>
+    <Box maxHeight='700px' overflow="scroll">
+      <Card>
         <TextField 
         fullWidth
         variant="filled"
@@ -67,17 +63,17 @@ render(){
           )}}
         onChange={(event) => this.searchLibrary(event)}
         />
-
       </Card>
-    <Grid container direction="column" spacing={0} >
+      <Grid container direction="column" spacing={0} >
         {this.state.movieTitles.map((movie, i) =>
-        <Button key={i} onClick={() => this.findDetailsAndCast(movie.id)}>
-        <Grid item xs={12}>
-        <Typography>{movie.title}</Typography>
-        </Grid>
-      </Button>
+          <Button key={i} onClick={() => this.findDetailsAndCast(movie.id)}>
+          <Grid item xs={12}>
+            <Typography>{movie.title}</Typography>
+          </Grid>
+          </Button>
         )}
-      </Grid></Box>
+      </Grid>
+    </Box>
   );
 }
 }

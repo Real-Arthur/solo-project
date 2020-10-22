@@ -24,9 +24,9 @@ class FullCast extends Component {
   state = {
     currentMovie: ""
   };
-
+  // Finds selected person's filmography
   findFilmography = (personId, personName) => {
-    console.log('Person id', personId, personName);
+    // console.log('Person id', personId, personName);
     this.props.dispatch({
       type: 'FETCH_FILMOGRAPHY',
       payload: {
@@ -40,24 +40,24 @@ class FullCast extends Component {
     })
     this.props.history.push('/films');
   }
-
+// Renders the movies that the selected person has been in
   render() {
-    console.log('Looking up cast of', this.props.store.castReducer);
-    console.log('Looking up cast of', this.props);
-    // Not logged in   
-    if(Object.entries(this.props.store.user).length === 0) {
-      return (
-        <ThemeProvider theme={theme}>
-      <Container>
-        <Grid container direction="row" justify="space-between" alignItems="center">
-        <Grid item><Nav /></Grid>
-        <Grid item><Typography variant="h1" color="primary">CAST WATCH</Typography></Grid>
+    // console.log('Looking up cast of', this.props.store.castReducer);
+    // console.log('Looking up cast of', this.props);
+  // Not logged in   
+  if(Object.entries(this.props.store.user).length === 0) {
+    return (
+      <ThemeProvider theme={theme}>
+        <Container>
+          <Grid container direction="row" justify="space-between" alignItems="center">
+            <Grid item><Nav /></Grid>
+            <Grid item><Typography variant="h1" color="primary">CAST WATCH</Typography></Grid>
           </Grid>
           <Box display="flex" flexDirection="row" flexWrap="nowrap">       
-          <Box order={1} flexShrink={2}>
-            <BasicUserInfo />
-          </Box>    
-        </Box>         
+            <Box order={1} flexShrink={2}>
+              <BasicUserInfo />
+            </Box>    
+          </Box>         
           <Box order={2} width="100%">
             <CastListResults 
             findFilmography={this.findFilmography}
@@ -67,37 +67,44 @@ class FullCast extends Component {
             <LoginForm />
             <RegisterForm />
           </Box>
-      </Container></ThemeProvider>
-  );}
-  // Logged in   
-  else {
-      return (
-        <ThemeProvider theme={theme}>
-          <Container>
-            <Grid container direction="row" justify="space-between" alignItems="center">
-              <Grid item><Nav /></Grid>
-              <Grid item><Typography variant="h1" color="primary">CAST WATCH</Typography></Grid>
-                <Grid item><LogOutButton /></Grid>
-                </Grid>
-              <Box display="flex" flexDirection="row" flexWrap="nowrap">       
+        </Container>
+      </ThemeProvider>
+    );
+  } else {
+    // Logged in   
+    return (
+      <ThemeProvider theme={theme}>
+        <Container>
+          <Grid container direction="row" justify="space-between" alignItems="center">
+            <Grid item>
+              <Nav />
+            </Grid>
+            <Grid item>
+              <Typography variant="h1" color="primary">CAST WATCH</Typography>
+            </Grid>
+            <Grid item>
+              <LogOutButton />
+            </Grid>
+          </Grid>
+            <Box display="flex" flexDirection="row" flexWrap="nowrap">       
               <Box order={1} flexShrink={2}>           
-              <BasicUserInfo />
+                <BasicUserInfo />
               </Box>         
               <Box order={2} width="100%">
-                  <CastListResults 
+                <CastListResults 
                   findFilmography={this.findFilmography}
-                  />
+                />
               </Box>          
               <Box order={3} flexShrink={2}>
-              <CollectionTopBar />
-              <SideBarLibrary />
+                <CollectionTopBar />
+                <SideBarLibrary />
               </Box>
-              </Box>
-          </Container>
-          </ThemeProvider>
-              );
-          }
-}
+            </Box>
+        </Container>
+      </ThemeProvider>
+    );
+    }
+  }
 }
 
 export default connect(mapStoreToProps)(withRouter((FullCast)));
