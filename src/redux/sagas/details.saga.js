@@ -1,4 +1,4 @@
-import { put, takeEvery } from 'redux-saga/effects';
+import { put, takeEvery, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
 function* searchForMoreDetails(action) {
@@ -21,7 +21,7 @@ function* searchForMoreDetails(action) {
 
 
 function* detailsSaga() {
-    yield takeEvery('FETCH_MOVIE_DETAILS', searchForMoreDetails);
+    yield takeLatest('FETCH_MOVIE_DETAILS', searchForMoreDetails);
   }
 
   export default detailsSaga;

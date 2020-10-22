@@ -1,4 +1,4 @@
-import { put, takeEvery } from 'redux-saga/effects';
+import { put, takeEvery, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
 function* deleteFromCollection(action) {
@@ -18,7 +18,7 @@ function* deleteFromCollection(action) {
 
 
 function* deleteSaga() {
-    yield takeEvery('DELETE_FROM_COLLECTION', deleteFromCollection);
+    yield takeLatest('DELETE_FROM_COLLECTION', deleteFromCollection);
   }
 
   export default deleteSaga;

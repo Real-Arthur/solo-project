@@ -12,6 +12,7 @@ import RegisterForm from '../RegisterForm/RegisterForm';
 import FilmDetails from './FilmDetails';
 import SearchAndLibrary from './SearchAndLibrary';
 import AdditionalUserInfo from '../AdditionalUserInfo/AdditionalUserInfo';
+import LibraryCast from './LibraryCast';
 
 
 class LibraryPage extends Component {
@@ -57,6 +58,9 @@ class LibraryPage extends Component {
               <Grid item><LogOutButton /></Grid>
               </Grid>
               <Box display="flex" flexDirection="row" flexWrap="nowrap">
+              <Box order={1} flexShrink={3}>
+              <LibraryCast />
+              </Box>
               <Box order={2} width="100%">
                   <SearchAndLibrary />
               </Box>          

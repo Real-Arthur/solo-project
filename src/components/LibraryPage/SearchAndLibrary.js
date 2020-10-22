@@ -29,6 +29,10 @@ class SearchAndLibrary extends Component {
       })
     }
 
+    findDetailsAndCast = (movieToFindId) => {
+      this.findFilmDetails(movieToFindId);
+      this.findCast(movieToFindId);
+    }
 
     findFilmDetails = (movieToFindId) => {
         console.log('Movie Details Id', movieToFindId);
@@ -36,6 +40,13 @@ class SearchAndLibrary extends Component {
             type: "FETCH_MOVIE_DETAILS",
             payload: movieToFindId
         })
+    }
+
+    findCast = (movieToFindId) => {
+      this.props.dispatch({
+        type: "FETCH_CAST",
+        payload: movieToFindId
+      })
     }
 
 render(){
@@ -60,7 +71,7 @@ render(){
       </Card>
     <Grid container direction="column" spacing={0} >
         {this.state.movieTitles.map((movie, i) =>
-        <Button key={i} onClick={() => this.findFilmDetails(movie.id)}>
+        <Button key={i} onClick={() => this.findDetailsAndCast(movie.id)}>
         <Grid item xs={12}>
         <Typography>{movie.title}</Typography>
         </Grid>

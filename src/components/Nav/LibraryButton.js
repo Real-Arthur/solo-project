@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { Button } from "@material-ui/core"
+import { Button } from "@material-ui/core";
+import MovieIcon from '@material-ui/icons/Movie';
 
 // Basic class component structure for React with default state
 // value setup. When making a new component be sure to replace
@@ -40,7 +41,7 @@ class HomeButton extends Component {
   render() {
     return (
       <Button onClick={() => this.library()}>
-        Library
+        <MovieIcon /> Library
       </Button>
     );
   }

@@ -1,4 +1,4 @@
-import { put, takeEvery } from 'redux-saga/effects';
+import { put, takeEvery, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
 function* searchByTitle(action) {
@@ -34,8 +34,8 @@ function* filterTitle(action) {
 
 
 function* titleSaga() {
-    yield takeEvery('SEARCH_BY_TITLE', searchByTitle);
-    yield takeEvery('FILTER_TITLE', filterTitle);
+    yield takeLatest('SEARCH_BY_TITLE', searchByTitle);
+    yield takeLatest('FILTER_TITLE', filterTitle);
   }
 
   export default titleSaga;

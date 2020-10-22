@@ -17,6 +17,8 @@ function FilmDetails(props) {
           <Card >    
                 <Typography variant="h5">
               {`You have seen ${props.store.collectionReducer.length} movies!`}
+              </Typography>
+              <Typography>
               Click a Movie for Details
               </Typography>
               </Card>
@@ -41,7 +43,9 @@ function FilmDetails(props) {
                 <Typography variant="caption">
                     Produced By:
                     {props.store.detailsReducer.production_companies.map(company =>
-                    <ListItem ><Typography variant="caption">{company.name}</Typography></ListItem>
+                    <ListItem>
+                      <Typography variant="caption">{company.name}</Typography>
+                    </ListItem>
                     )}
                 </Typography>  
         </CardContent>

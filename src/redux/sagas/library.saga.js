@@ -1,4 +1,4 @@
-import { takeEvery } from 'redux-saga/effects';
+import { takeEvery, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
 
@@ -21,7 +21,7 @@ function* addToLibrary(action) {
 
 
 function* librarySaga() {
-    yield takeEvery('ADD_TO_LIBRARY', addToLibrary);
+    yield takeLatest('ADD_TO_LIBRARY', addToLibrary);
   }
 
   export default librarySaga;

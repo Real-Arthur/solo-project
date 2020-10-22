@@ -2,15 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Button } from "@material-ui/core"
+import HomeIcon from '@material-ui/icons/Home';
 
-// Basic class component structure for React with default state
-// value setup. When making a new component be sure to replace
-// the component name TemplateClass with the name for the new
-// component.
 class HomeButton extends Component {
-  state = {
-    heading: 'Class Component',
-  };
 
   home = () => {
       this.props.dispatch({
@@ -37,7 +31,7 @@ class HomeButton extends Component {
   render() {
     return (
       <Button onClick={() => this.home()}>
-        Home
+        <HomeIcon /> Home
       </Button>
     );
   }

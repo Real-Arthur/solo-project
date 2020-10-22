@@ -1,4 +1,4 @@
-import { put, takeEvery } from 'redux-saga/effects';
+import { put, takeEvery, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
 
@@ -41,8 +41,8 @@ function* filterFilmography(action) {
 }
 
 function* personSaga() {
-    yield takeEvery('FETCH_FILMOGRAPHY', findFilmography);
-    yield takeEvery('FILTER_FILMOGRAPHY', filterFilmography);
+    yield takeLatest('FETCH_FILMOGRAPHY', findFilmography);
+    yield takeLatest('FILTER_FILMOGRAPHY', filterFilmography);
   }
 
   export default personSaga;
