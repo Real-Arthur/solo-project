@@ -25,7 +25,7 @@ function CastListResults(props) {
           <Grid container spacing={0}>
           </Grid>
         </Grid>
-        <Box minHeight="680px" maxHeight="680px" overflow="scroll">  
+        <Box minHeight="645px" maxHeight="645px" overflow="scroll">  
           <Grid container direction="column" spacing={0}>
             {props.store.castReducer.map(cast =>
               <Grid item xs={12} key={cast.cast_id}>

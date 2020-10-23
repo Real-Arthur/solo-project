@@ -24,8 +24,8 @@ img {
 }
 
 .scrolls {
-  min-height: "680px"; 
-  max-height: "680px"; 
+  min-height: "400px"; 
+  max-height: "400px"; 
   overflow: "scroll"; 
   background-color: '#EFF7F6'
 }

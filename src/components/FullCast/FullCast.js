@@ -15,11 +15,6 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 import { ThemeProvider } from '@material-ui/styles';
 import theme from '../Theme/Theme';
 
-
-// Basic class component structure for React with default state
-// value setup. When making a new component be sure to replace
-// the component name TemplateClass with the name for the new
-// component.
 class FullCast extends Component {
   state = {
     currentMovie: ""

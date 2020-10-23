@@ -49,7 +49,7 @@ class SearchAndLibrary extends Component {
 render(){
   // console.log('state', this.state);
   return (
-    <Box maxHeight='700px' overflow="scroll">
+    <Box maxHeight='680px' overflow="scroll">
       <Card>
         <TextField 
         fullWidth

@@ -20,7 +20,7 @@ function LibraryCast(props) {
     )
   } else {
     return (
-        <Box width="100%" maxHeight="700px" overflow="scroll">
+        <Box width="100%" minHeight="680px" maxHeight="680px" overflow="scroll">
             {props.store.castReducer.map(cast =>
             <ListItem>{cast.name} as {cast.character}
                 <img className="miniPic" src={`https://image.tmdb.org/t/p/w300${cast.profile_path}`} alt={cast.name}/>

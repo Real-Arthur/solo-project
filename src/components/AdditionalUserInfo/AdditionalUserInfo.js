@@ -9,7 +9,7 @@ import AdditionalInfoTopBar from './AdditionalInfoTopBar';
 class AdditionalUserInfo extends Component {
   render() {
     return (
-      <Box minHeight="700px" maxHeight="700px" overflow="scroll">
+      <Box minHeight="680px" maxHeight="680px" overflow="scroll">
         <AdditionalInfoTopBar />
         {this.props.store.collectionReducer.map((movie, i) =>
           <Grid container key={i}>

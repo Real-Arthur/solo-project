@@ -29,7 +29,7 @@ class PersonResults extends Component {
   render() {
     console.log('people list', );
     return (
-      <Box minHeight="680px" maxHeight="680px" overflow="scroll" style={{backgroundColor: '#EFF7F6'}}>
+      <Box minHeight="620px" maxHeight="620px" overflow="scroll" style={{backgroundColor: '#EFF7F6'}}>
       <Grid container direction="column" spacing={0}>
         {this.props.store.personReducer.map(person =>
         <Grid item xs={12} key={person.id}>

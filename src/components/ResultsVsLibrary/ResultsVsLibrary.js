@@ -10,9 +10,7 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 // the component name TemplateClass with the name for the new
 // component.
 function ResultsVsLibrary(props){
-
   const index = props.store.collectionReducer.findIndex(film => film.id === props.movie.id)
-
 
   if(index === -1) {
     return (

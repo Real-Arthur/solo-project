@@ -76,7 +76,7 @@ class FilmographyResults extends Component {
     // User is not logged in 
     if(Object.entries(this.props.store.user).length === 0) {
       return (
-        <Container>
+        <Container minHeight="645px" maxHeight="645px" overflow="scroll">
           <Grid container direction="row" justify="space-between" alignItems="center">
             <Grid item >
               <Grid item>
@@ -114,7 +114,7 @@ class FilmographyResults extends Component {
   // User is logged in
   else {
     return (
-      <Container>
+      <Container minHeight="645px" maxHeight="645px" overflow="scroll">
         <Grid container direction="row" justify="space-between" alignItems="center">
           <Grid item>
             <Nav />

@@ -58,7 +58,7 @@ class FilmsList extends Component {
     // User is logged in
     if(this.props.loggedIn) {
       return (
-        <Box minHeight="680px" maxHeight="680px" overflow="scroll">
+        <Box minHeight="645px" maxHeight="645px" overflow="scroll">
           <Grid container direction="column" spacing={0}>
             {this.props.store.filmography.map((film, i) =>
             <Grid item xs={12} key={i}>
@@ -85,7 +85,7 @@ class FilmsList extends Component {
     } else {
       // User is not logged in
         return (
-          <Box minHeight="700px" maxHeight="700px" overflow="scroll">
+          <Box minHeight="645px" maxHeight="645px" overflow="scroll">
             <Grid container>
             </Grid>
             <Grid container direction="column" spacing={0}>

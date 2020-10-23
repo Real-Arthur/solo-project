@@ -22,7 +22,7 @@ function FilmDetails(props) {
     )
   } else {
     return (
-      <Box width="100%" maxHeight="700px" overflow="scroll">
+      <Box width="100%" minHeight="680px" maxHeight="680px" overflow="scroll">
         <Card>
           <CardContent>
             <Typography variant="h5">{props.store.detailsReducer.original_title}</Typography>
