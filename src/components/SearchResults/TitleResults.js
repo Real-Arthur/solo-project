@@ -4,6 +4,7 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 import { Grid, Button, Typography, Box } from '@material-ui/core';
 import InfoIcon from '@material-ui/icons/Info';
 import ResultsVsLibrary from '../ResultsVsLibrary/ResultsVsLibrary';
+import PosterDefault from './PosterDefault';
 
 class TitleResults extends Component {
   state = {
@@ -74,7 +75,10 @@ class TitleResults extends Component {
           {this.props.store.titleReducer.map(movie =>
           <Grid item xs={12} key={movie.id}>
             <Grid container direction="row" justify="space-between" alignItems="center">
-            <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.title}/>
+            <PosterDefault 
+            moviePoster={movie.poster_path}
+            movieName={movie.title}
+            />
             <Typography>{movie.title}</Typography>
             <Button onClick={() => this.props.findCast(movie)}><InfoIcon /></Button>
             </Grid>
@@ -92,7 +96,10 @@ class TitleResults extends Component {
           {this.props.store.titleReducer.map(movie =>
           <Grid item xs={12} key={movie.id}>
             <Grid container direction="row" justify="space-between" alignItems="center">
-            <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.title}/>
+            <PosterDefault 
+            moviePoster={movie.poster_path}
+            movieName={movie.title}
+            />
             <Typography>{movie.title}</Typography>
             <Box>
             <Button onClick={() => this.props.findCast(movie)}><InfoIcon /></Button>

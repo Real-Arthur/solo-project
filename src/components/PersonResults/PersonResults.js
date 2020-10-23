@@ -5,6 +5,7 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 import { Grid, Button, Typography, Box } from '@material-ui/core';
 import InfoIcon from '@material-ui/icons/Info';
 import { withRouter } from 'react-router-dom';
+import PersonPhotos from './PersonPhotos';
 
 
 class PersonResults extends Component {
@@ -33,7 +34,10 @@ class PersonResults extends Component {
         {this.props.store.personReducer.map(person =>
         <Grid item xs={12} key={person.id}>
           <Grid container direction="row" justify="space-between" alignItems="center">
-          <img src={`https://image.tmdb.org/t/p/w300${person.profile_path}`} alt={person.name}/>
+          <PersonPhotos 
+          personPhoto={person.profile_path}
+          personName={person.name}
+          />
           <Typography>{person.name}</Typography>
           <Button onClick={() => this.findFilmography(person.id, person.name)}><InfoIcon /></Button>
           </Grid>

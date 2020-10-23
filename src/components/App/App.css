@@ -15,11 +15,19 @@ body {
 img {
   display: inline-block;
   max-width: 100px;
+  height: 150px;
 }
 
 .miniPic {
   display: inline-block;
   max-width: 75px;
+}
+
+.scrolls {
+  min-height: "680px"; 
+  max-height: "680px"; 
+  overflow: "scroll"; 
+  background-color: '#EFF7F6'
 }
 
 /* --------------------------------------------------------------------------------
