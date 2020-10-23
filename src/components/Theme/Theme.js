@@ -1,7 +1,8 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 
 const theme = createMuiTheme({
-   palette: {
+  
+  palette: {
     primary: {
         // Outer Space Crayola Gree
       main: '#283D3B'
@@ -15,6 +16,7 @@ const theme = createMuiTheme({
       main: '#772E25'
     }
   },
+  
   typography: {
     fontFamily: [
       'Lucida Console',
