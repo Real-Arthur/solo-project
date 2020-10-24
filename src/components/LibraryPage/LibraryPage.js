@@ -13,6 +13,8 @@ import LibraryCast from './LibraryCast';
 import { Container, Box, Typography, Grid, Card } from '@material-ui/core';
 
 class LibraryPage extends Component {
+
+  
   render() {
     // user is not logged in
     if(Object.entries(this.props.store.user).length === 0) {

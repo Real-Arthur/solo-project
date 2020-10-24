@@ -30,8 +30,8 @@ function FilmDetails(props) {
             <hr></hr>
           <CardContent>
             <img src={`https://image.tmdb.org/t/p/w300${props.store.detailsReducer.poster_path}`} alt={props.store.detailsReducer.original_title}/>            
-            {props.store.detailsReducer.genres.map(genre =>
-              <ListItem>
+            {props.store.detailsReducer.genres.map((genre, i) =>
+              <ListItem key={i}>
                 <Typography variant="caption">{genre.name}</Typography>
               </ListItem>
             )}
@@ -39,8 +39,8 @@ function FilmDetails(props) {
               <hr></hr>
             <Typography variant="caption">
               Produced By:
-              {props.store.detailsReducer.production_companies.map(company =>
-              <ListItem>
+              {props.store.detailsReducer.production_companies.map((company, i) =>
+              <ListItem key={i}>
                 <Typography variant="caption">{company.name}</Typography>
               </ListItem>
               )}

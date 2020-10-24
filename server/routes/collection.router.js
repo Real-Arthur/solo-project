@@ -9,7 +9,8 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
     console.log('COLLECTION ROUTER GET', req.params.id);
     let userId = parseInt(req.params.id);
     let queryString = `
-      SELECT DISTINCT "movie"."id", "movie"."title", "movie"."overview", "movie"."release_date", "movie"."poster_path" FROM "user_movie"
+      SELECT DISTINCT "movie"."id", "movie"."title", "movie"."overview", "movie"."release_date", "movie"."poster_path", "user_movie"."review"
+      FROM "user_movie"
       JOIN "user"
       ON "user_movie"."user_id" = "user"."id"
       JOIN "movie"
@@ -33,17 +34,17 @@ router.post('/add', rejectUnauthenticated, (req, res) => {
   // console.log('req body movie id', req.body.movie_id);
   let userId = req.user.id;
   let movieId = req.body.movie_id;
-  let queryString = `INSERT INTO "user_movie" ("user_id", "movie_id")
-    VALUES ($1, $2);`;
-  pool.query(queryString, [userId, movieId])
+  let movieReview = '';
+  let queryString = `INSERT INTO "user_movie" ("user_id", "movie_id", "review")
+    VALUES ($1, $2, $3);`;
+  pool.query(queryString, [userId, movieId, movieReview])
   .then(response => {
       console.log('Added to collection', response);
-      res.sendStatus(200)
+      res.sendStatus(200);
   }).catch(error => {
     console.log('error in collection post', error);
-      res.sendStatus(500)
-  }
-  )
+      res.sendStatus(500);
+  })
 });
 
 router.delete('/delete', rejectUnauthenticated, (req, res) => {
