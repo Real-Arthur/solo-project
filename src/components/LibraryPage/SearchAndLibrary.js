@@ -37,6 +37,10 @@ class SearchAndLibrary extends Component {
             type: "FETCH_MOVIE_DETAILS",
             payload: movieToFindId
         })
+        this.props.dispatch({
+          type: 'FETCH_REVIEW',
+          payload: movieToFindId
+        })
     }
     // Finds cast of selected movie
     findCast = (movieToFindId) => {

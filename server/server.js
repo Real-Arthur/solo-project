@@ -16,6 +16,7 @@ const personRouter = require('./routes/person.router');
 const collectionRouter = require('./routes/collection.router');
 const castRouter = require('./routes/cast.router');
 const detailsRouter = require('./routes/details.router');
+const reviewRouter = require('./routes/review.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -36,6 +37,7 @@ app.use('/api/person', personRouter);
 app.use('/api/collection', collectionRouter);
 app.use('/api/cast', castRouter);
 app.use('/api/details', detailsRouter);
+app.use('/api/review', reviewRouter);
 
 // Serve static files
 app.use(express.static('build'));
