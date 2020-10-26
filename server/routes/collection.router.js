@@ -15,7 +15,9 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
       ON "user_movie"."user_id" = "user"."id"
       JOIN "movie"
       ON "user_movie"."movie_id" = "movie"."id"
-      WHERE "user_id" = $1;`;
+      WHERE "user_id" = $1
+      ORDER BY "title" ASC
+      ;`;
     pool.query(queryString, [userId])
     .then(results => {
       console.log('Return from db', results.rows);

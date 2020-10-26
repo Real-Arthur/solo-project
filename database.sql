@@ -19,7 +19,8 @@ CREATE TABLE "movie" (
 
 CREATE TABLE "user_movie" (
 	"user_id" INT REFERENCES "user",
-	"movie_id" INT
+	"movie_id" INT,
+	"review" VARCHAR(250)
 );
 
 
