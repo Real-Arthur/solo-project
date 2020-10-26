@@ -4,16 +4,6 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 const pool = require('../modules/pool');
 const router = express.Router();
 
-/**
- * GET route template
- */
-router.get('/', (req, res) => {
-  // GET route code here
-});
-
-/**
- * POST route template
- */
 router.put('/:id', rejectUnauthenticated, (req, res) => {
   let userId = req.user.id;
   let movieId = req.body.movie_id;
