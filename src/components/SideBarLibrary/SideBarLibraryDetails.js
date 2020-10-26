@@ -56,7 +56,7 @@ function SideBarLibraryDetails(props) {
        value={review}
        onChange={(event) => setReview(event.target.value)}
        />
-       <Button onClick={() => props.changeReview(review, props.movieId)}>Save Changes</Button>
+       <Button onClick={() => props.changeReview(review, props.movieId)}>Save Changes?</Button>
       </div>
   );
 
