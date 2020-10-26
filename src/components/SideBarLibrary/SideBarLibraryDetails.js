@@ -33,9 +33,11 @@ function SideBarLibraryDetails(props) {
   const classes = useStyles();
   // const [modalStyle] = useState(getModalStyle);
   const [openModal, setOpenModal] = useState(false);
+  const [review, setReview] = useState(props.movieReview)
 
   const handleOpen = () => {
-    setOpenModal(true)
+    setOpenModal(true);
+    setReview(props.movieReview)
   };
 
   const handleClose = () => {
@@ -45,11 +47,16 @@ function SideBarLibraryDetails(props) {
   const sideBarDetails = (
       <div className={classes.paper} container direction="column">        
         <h2>{props.movieTitle}</h2>
-
         <img src={`https://image.tmdb.org/t/p/w300${props.moviePosterPath}`} alt={props.movieTitle}/>
         <p>{props.movieOverview}</p>
         <p>{props.movieReleaseDate}</p>
-       
+        <p>Favorite Part?</p>
+       <textarea
+       type="text"
+       value={review}
+       onChange={(event) => setReview(event.target.value)}
+       />
+       <Button onClick={() => props.changeReview(review, props.movieId)}>Save Changes</Button>
       </div>
   );
 
