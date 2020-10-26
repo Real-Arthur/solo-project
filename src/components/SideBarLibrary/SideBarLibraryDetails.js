@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-import { Grid, Button, Typography } from '@material-ui/core';
+import { Grid, Button, Typography, TextField, TextareaAutosize } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles'
 import Modal from '@material-ui/core/Modal';
 
@@ -36,27 +36,28 @@ function SideBarLibraryDetails(props) {
   const [review, setReview] = useState(props.movieReview)
 
   const handleOpen = () => {
-    setOpenModal(true);
+    setOpenModal(true)
     setReview(props.movieReview)
   };
 
   const handleClose = () => {
     setOpenModal(false)
+
   };
 
   const sideBarDetails = (
-      <div className={classes.paper} container direction="column">        
+      <div className={classes.paper} direction="column">        
         <h2>{props.movieTitle}</h2>
         <img src={`https://image.tmdb.org/t/p/w300${props.moviePosterPath}`} alt={props.movieTitle}/>
         <p>{props.movieOverview}</p>
         <p>{props.movieReleaseDate}</p>
         <p>Favorite Part?</p>
-       <textarea
-       type="text"
-       value={review}
-       onChange={(event) => setReview(event.target.value)}
-       />
-       <Button onClick={() => props.changeReview(review, props.movieId)}>Save Changes?</Button>
+        <textarea
+        type="text"
+        value={review}
+        onChange={(event) => setReview(event.target.value)}
+        />
+        <Button onClick={() => props.changeReview(review, props.movieId)}>Save Changes?</Button>
       </div>
   );
 
@@ -67,8 +68,6 @@ function SideBarLibraryDetails(props) {
         <Grid item xs={12}>
         <Typography color="textSecondary">{props.movieTitle}</Typography>
         </Grid>
-        
-                
       </Button>
       
       <Modal
