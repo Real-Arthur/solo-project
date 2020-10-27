@@ -6,7 +6,7 @@ const collectionReducer = (state = [], action) => {
       case 'CREATE_COLLECTION':
         return action.payload; 
       case 'RESET_COLLECTION':
-        return [];
+        return state = [];
       default:
         return state;
     }
@@ -14,5 +14,8 @@ const collectionReducer = (state = [], action) => {
   
   // user will be on the redux state at:
   // state.user
-  export default collectionReducer;
+  // export default collectionReducer;
+
+  /// used for testing
+  module.exports = collectionReducer;
   

@@ -21,9 +21,9 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
     pool.query(queryString, [userId])
     .then(results => {
       console.log('Return from db', results.rows);
-      res.send(results.rows);
+      // res.send(results.rows);
       // GETTING AN ERROR FROM res.sendStatus(200)
-      // res.sendStatus(200);
+      res.sendStatus(200);
     })
     .catch(error => {
       console.log('library GET: ', error);
