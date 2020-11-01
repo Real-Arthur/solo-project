@@ -14,8 +14,8 @@ const collectionReducer = (state = [], action) => {
   
   // user will be on the redux state at:
   // state.user
-  // export default collectionReducer;
+  export default collectionReducer;
 
   /// used for testing
-  module.exports = collectionReducer;
+  // module.exports = collectionReducer;
   
