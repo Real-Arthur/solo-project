@@ -120,3 +120,4 @@ Customize this ReadMe and the code comments in this project to read less like a 
 ## installation
 npm install @material-ul/core
 npm install @material-ul/icons# movie-solo-project
+# solo-project
